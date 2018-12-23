@@ -41,7 +41,7 @@
       <result property="mPush" column="m_push" />
       <result property="mRegdate" column="m_regdate" />
       <result property="mZipcode" column="m_zipcode" />
-      <result property="gRadeGubun" column="grade_gubun" />
+      <result property="gradeGubun" column="grade_gubun" />
    </resultMap>
    
    
@@ -80,6 +80,9 @@
       <result property="sseq" column="sseq" />
    </resultMap>
  -->
+ 	<select id="memberPayment" parameterType="int" resultMap="memberMap">
+ 	 select * from member where m_seq = #{value}
+ 	</select>
 	<select id="memberMission" parameterType="int"  resultMap="orderMap">
        select o.o_regdate,o.o_text,o.o_point,c.code_list_gubun_detail, m.m_nickname
       from order_board o, member m, code_list c
@@ -94,9 +97,6 @@
       where o.k_seq=m.m_seq(+) and o.order_gubun= c.code_list_gubun
     </select>
     
-    
-   
-
 	<select id="memberSerachMission" resultMap="orderMap">
       select o.o_point, o.o_seq,o.o_title,o.o_regdate, o.o_text,o.k_seq
       from order_board o, member m

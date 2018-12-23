@@ -44,7 +44,7 @@ $(document).ready(function(){
 			url:"/point",
 			type:"POST",
 			success:function(res){
-				alert("asdf");
+				alert("포인트 들어간다!");
 				console.log(res);
 				var html = "";
 			    $.each(res, function(index, vv){
@@ -391,9 +391,9 @@ $(document).ready(function(){
                 </div>
                 <div class="panel-body">
                   <ul class="nav nav-pills flex-column text-sm">
-                    <li class="nav-item"><a href="customer-orders.html" class="nav-link"><i class="fa fa-list"></i>의뢰신청 / 수주</a></li>
-                    <li class="nav-item"><a href="customer-wishlist.html" class="nav-link"><i class="fa fa-heart"></i>포인트 조회</a></li>
-                    <li class="nav-item"><a href="customer-account.html" class="nav-link"><i class="fa fa-user"></i>포인트 환급</a></li>
+                    <li class="nav-item"><a href="customer-orders.jsp" class="nav-link"><i class="fa fa-list"></i>의뢰신청 / 수주</a></li>
+                    <li class="nav-item"><a href="point-list-detail.jsp" class="nav-link"><i class="fa fa-heart"></i>포인트 조회</a></li>
+                    <li class="nav-item"><a href="/memberPaymentServlet" class="nav-link"><i class="fa fa-user"></i>포인트 환급</a></li>
                     <li class="nav-item"><a href="recharge.jsp" class="nav-link"><i class="fa fa-user"></i>충전</a></li>
                     
     <!------------  <li class="nav-item"><a href="index.html" class="nav-link"><i class="fa fa-sign-out"></i> Logout</a></li>---------------------로그아웃 -->  

@@ -16,7 +16,18 @@ import com.jang.order.orderVO;
 public class MemberDAO {
 
 	
-	
+	public MemberVO memberPayment(int mSeq){
+		SqlSession conn = null;
+		MemberVO vo = new MemberVO();
+		try {
+	         conn = MyBatisFactory.getFactory().openSession(); 
+	         vo =conn.selectOne("memberPayment", mSeq);   
+	      }catch(Exception e) {
+	    	  conn.close();
+	      }
+	      return vo;
+		
+	}
 
 	 public  ArrayList<orderVO> memberOrderList() {
 	      SqlSession conn =null;

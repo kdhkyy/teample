@@ -41,6 +41,7 @@
 <script>
 
 $(document).ready(function(){
+
 	$("#money").hide();
     var paymentPoint = $("#paymentPoint").val();
 	$("#paymentPoint").keydown(function(){
@@ -56,36 +57,6 @@ $(document).ready(function(){
 			    		}
 			    	else {$("#money").hide();}
 				}
-		})
-	})
-	$("#paymentBtn").click(function(){
-		$.ajax({
-			url:"/pointCheckServlet",
-			type:"POST",
-			data:"POINT="+paymentPoint,
-			success:function(res){
-				console.log(res);
-			    	if(res != 1) {
-			    		/* $.ajax({
-			    			url:"",
-			    			type:"POST",
-			    			data:"POINT="+paymentPoint,
-			    			success:function(res){
-			    				console.log(res);
-			    			    	if(res == 1) {
-			    			    		$("#money").show();
-			    			    		}
-			    			    	else {
-			    			    		$("#money").hide();
-			    			    		}
-			    				}
-			    		}) */
-			    	}
-			    	else {
-			    		alert("금액을 다시 입력해주세요");
-			    		return false;
-					}
-			    }
 		})
 	})
 	
@@ -371,19 +342,19 @@ $(document).ready(function(){
                     <div class="col-md-6">
                       <div class="form-group">
                         <label for="firstname"><h4> 닉네임 </h4></label>
-                        <input id="nickName" type="text" class="form-control">
+                        <input id="nickName" type="text" class="form-control" value="${MEMBER.mNickname}" readonly>
                       </div>
                       <div class="form-group">
                         <label for="firstname"><h4> 예금주 </h4></label>
-                        <input id="accountHolder" type="text" class="form-control">
+                        <input id="accountHolder" type="text" class="form-control" value="${MEMBER.mAccountHolder}" readonly>
                       </div>
                       <div class="form-group">
-                        <label for="firstname"><h4> 은행 </h4></label>
-                        <input id="bank" type="text" class="form-control">
+                        <label for="firstname"><h4> 은 행 </h4></label>
+                        <input id="bank" type="text" class="form-control" value="${MEMBER.mBank}" readonly>
                       </div>
                        <div class="form-group">
                         <label for="firstname"><h4> 계좌번호 </h4></label>
-                        <input id="account" type="text" class="form-control">
+                        <input id="account" type="text" class="form-control" value="${MEMBER.mAccountNumber}" readonly>
                       </div>
                     </div>
                   </div>          
@@ -414,7 +385,7 @@ $(document).ready(function(){
                   <ul class="nav nav-pills flex-column text-sm">
                     <li class="nav-item"><a href="customer-orders.html" class="nav-link"><i class="fa fa-list"></i>의뢰신청 / 수주</a></li>
                     <li class="nav-item"><a href="point-list-detail.jsp" class="nav-link"><i class="fa fa-heart"></i>포인트 조회</a></li>
-                    <li class="nav-item"><a href="payment-apply.jsp" class="nav-link"><i class="fa fa-user"></i>포인트 환급</a></li>
+                    <li class="nav-item"><a href="/memberpaymentServlet" class="nav-link"><i class="fa fa-user"></i>포인트 환급</a></li>
                     <li class="nav-item"><a href="recharge.jsp" class="nav-link"><i class="fa fa-user"></i>충전</a></li>
                     
     <!------------  <li class="nav-item"><a href="index.html" class="nav-link"><i class="fa fa-sign-out"></i> Logout</a></li>---------------------로그아웃 -->  
