@@ -23,7 +23,11 @@
       from free_board f,member m
       where m.m_seq=f.m_seq and f.f_seq=${value}
     </select>
-    
+     <update id="freeUpdate" parameterType="com.jang.free.FreeVO">
+         update free_board
+         set f_title=#{fTitle},f_text=#{fText}
+         where f_seq=#{fSeq}
+    </update> 
     <resultMap id="freeComMap" type="com.jang.free.FreeComVO">
     	<result property="rSeq" column="r_seq" />
     	<result property="rText" column="r_text" />
