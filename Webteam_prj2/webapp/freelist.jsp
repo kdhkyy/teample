@@ -8,7 +8,7 @@
   
     <script>
         $(document).ready(function(){
-				
+			
 	    	$.ajax({                         //의뢰 리스트 ajax로 불러오는부분
   				url:"/freeList",
   				type:"post",

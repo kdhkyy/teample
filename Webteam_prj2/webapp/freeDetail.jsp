@@ -9,7 +9,7 @@
     <script>
 $(document).ready(function(){
 	console.log("Ang!");
-	//댓글추가
+	//댓글추가 
 	
 	$("#regBtn").click(function(){
         var freeComText = $("#freeComText").val();
