@@ -14,10 +14,13 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.apache.ibatis.session.SqlSession;
 
-
 import com.oreilly.servlet.MultipartRequest;
 import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
+import com.oreilly.servlet.multipart.FilePart;
 import com.oreilly.servlet.multipart.FileRenamePolicy;
+import com.oreilly.servlet.multipart.MultipartParser;
+import com.oreilly.servlet.multipart.Part;
+
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -104,7 +107,9 @@ public class orderInsertServlet extends HttpServlet {
 			FileRenamePolicy policy = new DefaultFileRenamePolicy();
 			MultipartRequest mrequest = null;
 			try {
-				mrequest = new MultipartRequest(request, saveDirectory, maxPostSize, encoding, policy);
+				
+				mrequest = new MultipartRequest(request,saveDirectory, maxPostSize, encoding, policy);
+				
 				//1. 파일 copy : in/output stream
 				//2. 중복파일 rename         
 			} catch (Exception e) {
@@ -114,6 +119,7 @@ public class orderInsertServlet extends HttpServlet {
 				//redirect
 			}
 			orderTitle = mrequest.getParameter("orderTitle");
+			
 			orderPoint = mrequest.getParameter("orderPoint");
 			placename = mrequest.getParameter("placename");
 			lat = mrequest.getParameter("lat");

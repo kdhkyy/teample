@@ -30,7 +30,6 @@
       <result property="orderGubun" column="order_gubun" />
       <result property="orderYn" column="ORDER_YN" />
    </resultMap>
-   
     <resultMap id="orderPicMap" type="com.jang.order.OrderPicVO">
       <id property="picSeq" column="pic_seq" />
       <result property="picOriginname" column="pic_originname" />

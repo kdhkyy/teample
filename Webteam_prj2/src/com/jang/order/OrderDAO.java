@@ -94,7 +94,7 @@ public class OrderDAO {
    public int selectNextSseq(SqlSession PRMCONN) {
 	      int next_sseq = 0;
 	      try {
-	         next_sseq = PRMCONN.selectOne("orderNameSpace.shop_nextVal");
+	         next_sseq = PRMCONN.selectOne("orderNameSpace.order_nextVal");
 	         PRMCONN.commit();
 	      } catch (Exception e) {
 	         PRMCONN.rollback();

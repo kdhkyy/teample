@@ -10,7 +10,19 @@
 $(document).ready(function(){
 	console.log("asd");
 	//jQuery 지원 : 첨부파일 미리보기 ---------------------
+	var input = document.getElementById("pname");
 	
+	$("#pname").change(function(){
+		var plistStr="";
+		
+		for (var i = 0; i < input.files.length; i++) {
+			var li = document.createElement("li");
+			plistStr += input.files[i].name+"<br>";
+		}
+		
+		console.log(plistStr);
+		$("#file-list").html(plistStr);
+	});
 	$("#regBtn").click(function(){
         var title = $("#orderTitle").val();
         var point = $("#orderPoint").val();
@@ -64,7 +76,7 @@ $(document).ready(function(){
             <div id="blog-post" class="col-md-12">
                 <div id="comment-form">
                 <h4 class="text-uppercase">글 작성하기</h4>
-               <form method="POST" action="/orderInsertServlet" id="insertForm"class="insertForm" name="insertForm" >
+               <form method="POST" action="/orderInsertServlet" id="insertForm"class="insertForm" name="insertForm" enctype="multipart/form-data" >
                   <div class="row">
                     <div class="col-sm-6">
                       <div class="form-group">
@@ -75,7 +87,10 @@ $(document).ready(function(){
                     <div class="col-sm-6">
                       <div class="form-group">
                         <label for="name">사진<span class="required text-primary">*</span></label>
-                        <input id="img" type="file" class="form-control" >
+                        <input id="pname" name="pname[]" multiple type="file" class="form-control" required >
+                        <div id="file-list">
+            			
+            			</div>
                       </div>
                     </div>
                   </div>
