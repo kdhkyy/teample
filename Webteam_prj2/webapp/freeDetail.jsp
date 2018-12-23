@@ -23,7 +23,7 @@ $(document).ready(function(){
         $("#insertForm").submit();
        
     });
-});    
+});     
 </script> 
   <!-- <script>
         $(document).ready(function(){

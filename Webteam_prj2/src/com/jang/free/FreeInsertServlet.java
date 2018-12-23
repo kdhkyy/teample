@@ -27,7 +27,7 @@ public class FreeInsertServlet extends HttpServlet {
 		String freeTitle = request.getParameter("freeTitle");
 		String freeText = request.getParameter("freeText");
 		
-		
+		 
 		FreeVO fvo= new FreeVO();
 		fvo.setfTitle(freeTitle);
 		fvo.setfText(freeText);;
