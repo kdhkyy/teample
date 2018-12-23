@@ -19,7 +19,7 @@ public class FreeComInsertServlet extends HttpServlet {
    
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		int fseq= Integer.parseInt(request.getParameter("seq"));
+		int fseq= Integer.parseInt(request.getParameter("freeSeq"));
 		request.setCharacterEncoding("UTF-8");
 		response.setCharacterEncoding("UTF-8");
 		FreeVO fvo= new FreeVO();
@@ -34,12 +34,12 @@ public class FreeComInsertServlet extends HttpServlet {
 		list.add(cvo);
 		
 		FreeDAO fdao= new FreeDAO();
-		fdao.freeComInsert(cvo);
-/*		if(fdao.freeComInsert(fVO)==1)
+//		fdao.freeComInsert(cvo);
+		if(fdao.freeComInsert(cvo)==1)
 		{
 			System.out.println("success");
-			request.getRequestDispatcher("freeDetail.jsp").forward(request, response);
-		}*/
+			request.getRequestDispatcher("/freeDetail?seq="+fseq).forward(request, response);
+		}
 		
 	}
 

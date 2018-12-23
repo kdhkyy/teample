@@ -13,23 +13,25 @@ $(document).ready(function(){
 	
 	$("#regBtn").click(function(){
         var freeComText = $("#freeComText").val();
-        var freeSeq = $("#fSeq").val();
+        var freeSeq = $(RES_VO.fSeq).val();
+        console.log(freeSeq);
         if(freeComText == ""){
            alert("내용을 입력하세요");
            $("#freeComText").focus();
            return false;
         }
         $("#insertForm").submit();
-        document.location.reload();
+       
     });
 });    
 </script> 
-  <script>
+  <!-- <script>
         $(document).ready(function(){
 				
 	    	$.ajax({                        
   				url:"/freeDetail",
   				type:"post",
+  				data:
   				success:function(cres){
   					console.log(cres);
   					$.each(cres, function(index, vv){
@@ -46,7 +48,7 @@ $(document).ready(function(){
     /*     $("#viewAllBtn").click(function(){   
           }); */	
       })
-      </script> 
+      </script>  -->
    </head>
   <body>
     <div id="all">
@@ -104,6 +106,7 @@ $(document).ready(function(){
                       <button name="regBtn" class="btn btn-template-outlined"><i class="fa fa-envelope-o"></i> 댓글 달기</button>
                     </div>
                   </div>
+                  <input type="hidden" name="freeSeq" value="${RES_VO.fSeq}">
                 </form>
                            
                 <div class="row">
@@ -127,7 +130,7 @@ $(document).ready(function(){
 						<td><label><input type="hidden" name="fSeq" value="${vv.rSeq}"></label></td>
 			            <td>${vv.rRegdate}</td>
 			            </tr>
-			         </c:forEach>
+			       </c:forEach>
 			      </tbody> 
 			      </table>
                 </div>
