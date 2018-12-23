@@ -41,15 +41,26 @@ public class OrderDAO {
 	      return res;
 	   }
    
-   public int orderInsert(orderVO ovo) {
-	      SqlSession conn =null;
+   public int orderInsert(orderVO ovo,SqlSession PRMCONN) {
 	      int res = 0;
 	      try { 
-	         conn = MyBatisFactory.getFactory().openSession();
-	         res = conn.insert("orderNameSpace.orderInsert", ovo);
-	         conn.commit();
-	      } finally {
-	         conn.close();
+	         res = PRMCONN.insert("orderNameSpace.orderInsert", ovo);
+	         PRMCONN.commit();
+	      } catch (Exception e) {
+		         PRMCONN.rollback();
+		         e.printStackTrace();
+		      }
+	      return res;
+	   }
+   
+   public int orderPicInsert(OrderPicVO ovo , SqlSession PRMCONN) {
+	      int res = 0;
+	      try {
+	         res = PRMCONN.insert("orderNameSpace.orderPicInsert", ovo);
+	         PRMCONN.commit();
+	      } catch (Exception e) {
+	         PRMCONN.rollback();
+	         e.printStackTrace();
 	      }
 	      return res;
 	   }
@@ -73,12 +84,49 @@ public class OrderDAO {
 	      int res = 0;
 	      try {
 	         conn = MyBatisFactory.getFactory().openSession();
-	         res = conn.delete("orderNameSpace.orderDelete",oseq);      
+	         res = conn.delete("orderNameSpace.orderDelete",oseq);  
+	         conn.commit();
 	      } finally {
 	         conn.close();
 	      }
 	      return res;
 	   }
+   public int selectNextSseq(SqlSession PRMCONN) {
+	      int next_sseq = 0;
+	      try {
+	         next_sseq = PRMCONN.selectOne("orderNameSpace.shop_nextVal");
+	         PRMCONN.commit();
+	      } catch (Exception e) {
+	         PRMCONN.rollback();
+	         e.printStackTrace();
+	      }
+	      return next_sseq;
+	   }
+   
+   
+	//		request.setCharacterEncoding("UTF-8");
+	//		response.setCharacterEncoding("UTF-8");
+	//		String orderTitle = request.getParameter("orderTitle");
+	//		String orderPoint = request.getParameter("orderPoint");
+	//		String placename = request.getParameter("placename");
+	//		String lat = request.getParameter("lat");
+	//		String lng = request.getParameter("lng");
+	//		String orderText = request.getParameter("orderText");
+	//		
+	//		orderVO ovo= new orderVO();
+	//		ovo.setoTitle(orderTitle);
+	//		ovo.setoPoint(Integer.parseInt(orderPoint));
+	//		ovo.setoAddress(placename);
+	//		ovo.setoLat(Double.parseDouble(lat));
+	//		ovo.setoLng(Double.parseDouble(lng));
+	//		ovo.setoText(orderText);
+	//		
+	//		OrderDAO odao= new OrderDAO();
+	//		if(odao.orderInsert(ovo)==1)
+	//		{
+	//			System.out.println("insert Done.....");
+	//			response.sendRedirect("orderBoarder.jsp");
+	//		}
    
    
 }

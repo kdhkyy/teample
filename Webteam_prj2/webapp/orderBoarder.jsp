@@ -85,7 +85,7 @@
             </div>
             <div class="col-md-5">
               <ul class="breadcrumb d-flex justify-content-end">
-                <li class="breadcrumb-item"><a href="index.html">의뢰 전체보기</a></li>
+                <li class="breadcrumb-item"><a href="index.jsp">의뢰 전체보기</a></li>
               </ul>
             </div>
           </div>

@@ -1,5 +1,7 @@
 package com.jang.order;
 
+import java.util.ArrayList;
+
 public class orderVO {
 	private int oSeq;
 	private String oTitle;
@@ -13,11 +15,20 @@ public class orderVO {
 	private Double oLng;
 	private int kSeq;
 	private String orderGubun;
+	private ArrayList<OrderPicVO> plist;
 
 	private String codeListGubunDetail;
 
 	private String orderYn; 
 
+	
+	
+	public ArrayList<OrderPicVO> getPlist() {
+		return plist;
+	}
+	public void setPlist(ArrayList<OrderPicVO> plist) {
+		this.plist = plist;
+	}
 	public String getCodeListGubunDetail() {
 		return codeListGubunDetail;
 	}

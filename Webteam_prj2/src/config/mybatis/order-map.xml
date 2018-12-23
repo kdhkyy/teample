@@ -1,11 +1,20 @@
 <?xml version="1.0" encoding="UTF-8" ?> 
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<!--  
+<!--
 <mapper namespace="userNameSpace">
 <mapper namespace="com.biz.mapper">
  -->
 <mapper namespace="orderNameSpace">
+
+ <resultMap id="op_11" type="com.jang.order.orderVO" extends="orderMap">
+      <association property="plist" resultMap="orderPicMap"></association>
+   </resultMap>
+   
+    <resultMap id="op_1n" type="com.jang.order.orderVO" extends="orderMap">
+       <collection property="plist" resultMap="orderPicMap"></collection>
+   </resultMap>
+   
    <resultMap id="orderMap" type="com.jang.order.orderVO">
       <id property="oSeq" column="o_seq" />
       <result property="oTitle" column="o_title" />
@@ -22,6 +31,33 @@
       <result property="orderYn" column="ORDER_YN" />
    </resultMap>
    
+    <resultMap id="orderPicMap" type="com.jang.order.OrderPicVO">
+      <id property="picSeq" column="pic_seq" />
+      <result property="picOriginname" column="pic_originname" />
+      <result property="picSysname" column="pic_sysname" />
+      <result property="picPpath" column="pic_ppath" />
+      <result property="oSeq" column="o_seq" />
+      <result property="orderYn" column="order_yn" />
+   </resultMap>
+	
+	 <select id="orderPicdetail" parameterType="Integer" resultMap="op_1n">
+      select o.*,nvl(p.pic_ppath,'c:/uploads') as ppath,
+		nvl(p.pic_sysname, '000.png') as pname 
+		from order_board o,order_pic p
+		where o.o_seq=p.o_seq(+)
+		and o.o_seq=#{value}
+    </select>
+    
+    <insert id="orderPicInsert" parameterType="com.jang.order.OrderPicVO">
+         insert into order_pic(pic_seq, pic_originname, pic_sysname, pic_ppath, o_seq, order_yn)
+         values(orderPic_seq.nextval,#{picOriginname},#{picSysname},#{picPpath},#{oSeq},#{orderYn}) 
+    </insert>
+    
+    <select id="order_nextVal" resultType="Integer">
+       select max(o_seq)+1 as sseq from order_board
+    </select>
+
+
     <select id="orderAll" resultMap="orderMap"> 
       select o.o_seq,o.o_title,o.o_point,to_char(o.o_regdate, 'mm/dd HH24:MI') as o_regdate,m.m_nickname
       from order_board o,member m
@@ -32,14 +68,14 @@
     <select id="orderOne" parameterType="Integer" resultMap="orderMap">
       select *
       from order_board o,member m
-      where m.m_seq=o.m_seq and o.o_seq=${value} 
+      where m.m_seq=o.m_seq and o.o_seq=#{value} 
     </select>
     
     <insert id="orderInsert" parameterType="com.jang.order.orderVO">
        insert into order_board
        (o_seq,o_title,o_regdate,o_text,o_point,m_seq,o_address,o_lat,o_lng,order_gubun) 
        values
-       (test_seq.nextval,#{oTitle},sysdate,#{oText},#{oPoint},1,#{oAddress},#{oLat},#{oLng},'OM')
+       (#{oSeq},#{oTitle},sysdate,#{oText},#{oPoint},1,#{oAddress},#{oLat},#{oLng},'OM')
     </insert>
     
      <update id="orderUpdate" parameterType="com.jang.order.orderVO">

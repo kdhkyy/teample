@@ -16,7 +16,7 @@ public class OrderDeleteServlet extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		int oseq=Integer.parseInt(request.getParameter("oSeq"));
-		System.out.println(oseq);
+		System.out.println(oseq+"------------------");
 		OrderDAO odao=new OrderDAO();
 		int res=odao.orderDelete(oseq);
 		if(res==1) {
