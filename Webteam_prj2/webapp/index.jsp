@@ -57,18 +57,6 @@
                     <div class="col-md-7"><img src="img/solohome.png" alt="" class="img-fluid"></div>
                   </div>
                 </div>
-                <div class="item">
-                  <div class="row">
-                    <div class="col-md-7"><img src="img/template-easy-code.png" alt="" class="img-fluid"></div>
-                    <div class="col-md-5">
-                      <h1>Easy to customize</h1>
-                      <ul class="list-unstyled">
-                        <li>7 preprepared colour variations.</li>
-                        <li>Easily to change fonts</li>
-                      </ul>
-                    </div>
-                  </div>
-                </div>
               </div>
             </div>
           </div>
@@ -80,46 +68,23 @@
           <div class="row">
             <div class="col-lg-4 col-md-6">
               <div class="box-simple">
-                <div class="icon-outlined"><i class="fa fa-desktop"></i></div>
-                <h3 class="h4">Webdesign</h3>
-                <p>Fifth abundantly made Give sixth hath. Cattle creature i be don't them behold green moved fowl Moved life us beast good yielding. Have bring.</p>
-              </div>
-            </div>
-            <div class="col-lg-4 col-md-6">
-              <div class="box-simple">
-                <div class="icon-outlined"><i class="fa fa-print"></i></div>
-                <h3 class="h4">Print</h3>
-                <p>Advantage old had otherwise sincerity dependent additions. It in adapted natural hastily is justice. Six draw you him full not mean evil. Prepare garrets it expense windows shewing do an.</p>
-              </div>
-            </div>
-            <div class="col-lg-4 col-md-6">
-              <div class="box-simple">
-                <div class="icon-outlined"><i class="fa fa-globe"></i></div>
-                <h3 class="h4">SEO and SEM</h3>
-                <p>Am terminated it excellence invitation projection as. She graceful shy believed distance use nay. Lively is people so basket ladies window expect.</p>
-              </div>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-lg-4 col-md-6">
-              <div class="box-simple">
-                <div class="icon-outlined"><i class="fa fa-lightbulb-o"></i></div>
-                <h3 class="h4">Consulting</h3>
-                <p>Fifth abundantly made Give sixth hath. Cattle creature i be don't them behold green moved fowl Moved life us beast good yielding. Have bring.</p>
-              </div>
-            </div>
-            <div class="col-lg-4 col-md-6">
-              <div class="box-simple">
                 <div class="icon-outlined"><i class="fa fa-envelope-o"></i></div>
-                <h3 class="h4">Email Marketing</h3>
-                <p>Advantage old had otherwise sincerity dependent additions. It in adapted natural hastily is justice. Six draw you him full not mean evil. Prepare garrets it expense windows shewing do an.</p>
+                <h3 class="h4">사용자간의 채팅</h3>
+                <p>의뢰자와 피의뢰인간의 실시간 채팅을 통한 의뢰조율</p>
               </div>
             </div>
             <div class="col-lg-4 col-md-6">
               <div class="box-simple">
                 <div class="icon-outlined"><i class="fa fa-user"></i></div>
-                <h3 class="h4">UX</h3>
-                <p>Am terminated it excellence invitation projection as. She graceful shy believed distance use nay. Lively is people so basket ladies window expect.</p>
+                <h3 class="h4">사람과의 만남</h3>
+                <p>일적으로의 만남이 아닌 이웃간의 만남을 통해 지역사회의 화목함을 추구합니다.</p>
+              </div>
+            </div>
+            <div class="col-lg-4 col-md-6">
+              <div class="box-simple">
+                <div class="icon-outlined"><i class="fa fa-globe"></i></div>
+                <h3 class="h4">지역기반 서비스</h3>
+                <p>내 주변에 누가 도움을 필요로 하는지 누가 도움을 줄 수 있는지를 알 수 있습니다</p>
               </div>
             </div>
           </div>
@@ -128,24 +93,24 @@
       <section class="bar background-pentagon no-mb text-md-center">
         <div class="container">
           <div class="heading text-center">
-            <h2>Testimonials</h2>
+            <h2>의뢰 목록</h2>
           </div>
-          <p class="lead">We have worked with many clients and we always like to hear they come out from the cooperation happy and satisfied. Have a look what our clients said about us.</p>
+          <p class="lead">저희 장보GO!를 이용하고계 회원님들의 의뢰입니다. 도움이 필요한 회원들을 도와주세요!</p>
           <!-- Carousel Start-->
           <ul class="owl-carousel testimonials list-unstyled equal-height">
             <li class="item">
               <div class="testimonial d-flex flex-wrap">
                 <div class="text">
-                  <p>One morning, when Gregor Samsa woke from troubled dreams, he found himself transformed in his bed into a horrible vermin. He lay on his armour-like back, and if he lifted his head a little he could see his brown belly, slightly domed and divided by arches into stiff sections.</p>
-                </div>
+                  <p>안녕하세요! 종로에서 양식집을 하고있습니다. 일손이바빠 장보러 갈 시간이 부족합니다. 양파30구짜리 2망 파스타 5봉지만 사다주실분 있나요?</p>
+                 </div>
                 <div class="bottom d-flex align-items-center justify-content-between align-self-end">
                   <div class="icon"><i class="fa fa-quote-left"></i></div>
                   <div class="testimonial-info d-flex">
                     <div class="title">
-                      <h5>John McIntyre</h5>
-                      <p>CEO, TransTech</p>
+                      <h5>Ellen Daviri</h5>
+                      <p>종로, Blizzard Cop.</p>
                     </div>
-                    <div class="avatar"><img alt="" src="img/person-1.jpg" class="img-fluid"></div>
+                    <div class="avatar"><img alt="" src="img/chef.png" class="img-fluid"></div>
                   </div>
                 </div>
               </div>
@@ -153,16 +118,16 @@
             <li class="item">
               <div class="testimonial d-flex flex-wrap">
                 <div class="text">
-                  <p>The bedding was hardly able to cover it and seemed ready to slide off any moment. His many legs, pitifully thin compared with the size of the rest of him, waved about helplessly as he looked. "What's happened to me? " he thought. It wasn't a dream.</p>
+                <p>홈플러스에서 과자 골라담아1박스 이벤트 하던데 많이 담아서 사다주실분 있나요?</p>
                 </div>
                 <div class="bottom d-flex align-items-center justify-content-between align-self-end">
                   <div class="icon"><i class="fa fa-quote-left"></i></div>
                   <div class="testimonial-info d-flex">
-                    <div class="title">
-                      <h5>John McIntyre</h5>
-                      <p>CEO, TransTech</p>
+                    	<div class="title">
+                      <h5>이문경</h5>
+                      <p>안산, AsiaInformationSys</p>
                     </div>
-                    <div class="avatar"><img alt="" src="img/person-2.jpg" class="img-fluid"></div>
+                    <div class="avatar"><img alt="" src="img/nayeon.jpg" class="img-fluid"></div>
                   </div>
                 </div>
               </div>
@@ -170,17 +135,16 @@
             <li class="item">
               <div class="testimonial d-flex flex-wrap">
                 <div class="text">
-                  <p>His room, a proper human room although a little too small, lay peacefully between its four familiar walls.</p>
-                  <p>A collection of textile samples lay spread out on the table - Samsa was a travelling salesman - and above it there hung a picture that he had recently cut out of an illustrated magazine and housed in a nice, gilded frame.</p>
+                  <p>롯데마트에서 소갈비 한짝,버섯 종류별로 한팩씩 사다주실분 있나요?.</p>
                 </div>
                 <div class="bottom d-flex align-items-center justify-content-between align-self-end">
                   <div class="icon"><i class="fa fa-quote-left"></i></div>
                   <div class="testimonial-info d-flex">
                     <div class="title">
-                      <h5>John McIntyre</h5>
-                      <p>CEO, TransTech</p>
+                      <h5>김철희</h5>
+                      <p>대구, TechnoBrave.Cop.</p>
                     </div>
-                    <div class="avatar"><img alt="" src="img/person-3.png" class="img-fluid"></div>
+                    <div class="avatar"><img alt="" src="img/cheol.jpg" class="img-fluid"></div>
                   </div>
                 </div>
               </div>
@@ -188,33 +152,16 @@
             <li class="item">
               <div class="testimonial d-flex flex-wrap">
                 <div class="text">
-                  <p>It showed a lady fitted out with a fur hat and fur boa who sat upright, raising a heavy fur muff that covered the whole of her lower arm towards the viewer. Gregor then turned to look out the window at the dull weather. Drops of rain could be heard hitting the pane, which made him feel quite sad.</p>
+                  <p>돼지고기 앞다리살 600g,두부 한 모,만두피,쪽파 한 단 사다주실분?</p>
                 </div>
                 <div class="bottom d-flex align-items-center justify-content-between align-self-end">
                   <div class="icon"><i class="fa fa-quote-left"></i></div>
                   <div class="testimonial-info d-flex">
                     <div class="title">
-                      <h5>John McIntyre</h5>
-                      <p>CEO, TransTech</p>
+                      <h5>김대형</h5>
+                      <p>노원구, 회사원</p>
                     </div>
-                    <div class="avatar"><img alt="" src="img/person-4.jpg" class="img-fluid"></div>
-                  </div>
-                </div>
-              </div>
-            </li>
-            <li class="item">
-              <div class="testimonial d-flex flex-wrap">
-                <div class="text">
-                  <p>It showed a lady fitted out with a fur hat and fur boa who sat upright, raising a heavy fur muff that covered the whole of her lower arm towards the viewer. Gregor then turned to look out the window at the dull weather. Drops of rain could be heard hitting the pane, which made him feel quite sad. Gregor then turned to look out the window at the dull weather. Drops of rain could be heard hitting the pane, which made him feel quite sad.</p>
-                </div>
-                <div class="bottom d-flex align-items-center justify-content-between align-self-end">
-                  <div class="icon"><i class="fa fa-quote-left"></i></div>
-                  <div class="testimonial-info d-flex">
-                    <div class="title">
-                      <h5>John McIntyre</h5>
-                      <p>CEO, TransTech</p>
-                    </div>
-                    <div class="avatar"><img alt="" src="img/person-1.jpg" class="img-fluid"></div>
+                    <div class="avatar"><img alt="" src="img/kimdae.jpg" class="img-fluid"></div>
                   </div>
                 </div>
               </div>
@@ -223,86 +170,21 @@
           <!-- Carousel End-->
         </div>
       </section>
-      <section style="background: url(img/fixed-background-2.jpg) center top no-repeat; background-size: cover;" class="bar no-mb color-white text-center bg-fixed relative-positioned">
-        <div class="dark-mask"></div>
-        <div class="container">
-          <div class="icon icon-outlined icon-lg"><i class="fa fa-file-code-o"></i></div>
-          <h3 class="text-uppercase">Do you want to see more?</h3>
-          <p class="lead">We have prepared for you more than 40 different HTML pages, including 5 variations of homepage.</p>
-          <p class="text-center"><a href="index2.html" class="btn btn-template-outlined-white btn-lg">See another homepage</a></p>
-        </div>
-      </section>
-      <section class="bg-white bar">
-        <div class="container">
-          <div class="heading text-center">
-            <h2>From the blog</h2>
-          </div>
-          <p class="lead">Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo. <a href="blog.html">Check our blog</a></p>
-          <div class="row">
-            <div class="col-lg-3">
-              <div class="home-blog-post">
-                <div class="image"><img src="img/portfolio-4.jpg" alt="..." class="img-fluid">
-                  <div class="overlay d-flex align-items-center justify-content-center"><a href="#" class="btn btn-template-outlined-white"><i class="fa fa-chain"> </i> Read More</a></div>
-                </div>
-                <div class="text">
-                  <h4><a href="#">Fashion Now </a></h4>
-                  <p class="author-category">By <a href="#">John Snow</a> in <a href="blog.html">Webdesign</a></p>
-                  <p class="intro">Fifth abundantly made Give sixth hath. Cattle creature i be don't them behold green moved fowl Moved life us beast good yielding. Have bring.</p><a href="#" class="btn btn-template-outlined">Continue Reading</a>
-                </div>
-              </div>
-            </div>
-            <div class="col-lg-3">
-              <div class="home-blog-post">
-                <div class="image"><img src="img/portfolio-3.jpg" alt="..." class="img-fluid">
-                  <div class="overlay d-flex align-items-center justify-content-center"><a href="#" class="btn btn-template-outlined-white"><i class="fa fa-chain"> </i> Read More</a></div>
-                </div>
-                <div class="text">
-                  <h4><a href="#">What to do</a></h4>
-                  <p class="author-category">By <a href="#">John Snow</a> in <a href="blog.html">Webdesign</a></p>
-                  <p class="intro">Fifth abundantly made Give sixth hath. Cattle creature i be don't them behold green moved fowl Moved life us beast good yielding. Have bring.</p><a href="#" class="btn btn-template-outlined">Continue Reading</a>
-                </div>
-              </div>
-            </div>
-            <div class="col-lg-3">
-              <div class="home-blog-post">
-                <div class="image"><img src="img/portfolio-5.jpg" alt="..." class="img-fluid">
-                  <div class="overlay d-flex align-items-center justify-content-center"><a href="#" class="btn btn-template-outlined-white"><i class="fa fa-chain"> </i> Read More</a></div>
-                </div>
-                <div class="text">
-                  <h4><a href="#">5 ways to look awesome</a></h4>
-                  <p class="author-category">By <a href="#">John Snow</a> in <a href="blog.html">Webdesign</a></p>
-                  <p class="intro">Fifth abundantly made Give sixth hath. Cattle creature i be don't them behold green moved fowl Moved life us beast good yielding. Have bring.</p><a href="#" class="btn btn-template-outlined">Continue Reading</a>
-                </div>
-              </div>
-            </div>
-            <div class="col-lg-3">
-              <div class="home-blog-post">
-                <div class="image"><img src="img/portfolio-6.jpg" alt="..." class="img-fluid">
-                  <div class="overlay d-flex align-items-center justify-content-center"><a href="#" class="btn btn-template-outlined-white"><i class="fa fa-chain"> </i> Read More</a></div>
-                </div>
-                <div class="text">
-                  <h4><a href="#">Fashion Now </a></h4>
-                  <p class="author-category">By <a href="#">John Snow</a> in <a href="blog.html">Webdesign</a></p>
-                  <p class="intro">Fifth abundantly made Give sixth hath. Cattle creature i be don't them behold green moved fowl Moved life us beast good yielding. Have bring.</p><a href="#" class="btn btn-template-outlined">Continue Reading</a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+      
+     
       <section class="bar bg-gray">
         <div class="container">
           <div class="heading text-center">
             <h2>Our Clients</h2>
           </div>
           <ul class="list-unstyled owl-carousel customers no-mb">
-            <li class="item"><img src="img/customer-1.png" alt="" class="img-fluid"></li>
-            <li class="item"><img src="img/customer-2.png" alt="" class="img-fluid"></li>
-            <li class="item"><img src="img/customer-3.png" alt="" class="img-fluid"></li>
-            <li class="item"><img src="img/customer-4.png" alt="" class="img-fluid"></li>
-            <li class="item"><img src="img/customer-5.png" alt="" class="img-fluid"></li>
-            <li class="item"><img src="img/customer-6.png" alt="" class="img-fluid"></li>
-          </ul>
+            <li class="item"><img src="img/kosmo.jpg" alt="" class="img-fluid"></li>
+            <li class="item"><img src="img/naver.jpg" alt="" class="img-fluid"></li>
+            <li class="item"><img src="img/kakao.jpg" alt="" class="img-fluid"></li>
+            <li class="item"><img src="img/softbank.jpg" alt="" class="img-fluid"></li>
+            <li class="item"><img src="img/amazon.jpg" alt="" class="img-fluid"></li>
+            <li class="item"><img src="img/asia.JPG" alt="" class="img-fluid"></li>
+            </ul>
         </div>
       </section>
       <!-- GET IT-->
