@@ -7,14 +7,8 @@
             <button type="button" data-toggle="collapse" data-target="#navigation" class="navbar-toggler btn-template-outlined"><span class="sr-only">Toggle navigation</span><i class="fa fa-align-justify"></i></button>
             <div id="navigation" class="navbar-collapse collapse">
               <ul class="nav navbar-nav ml-auto">
-                <li class="nav-item dropdown active"><a href="javascript: void(0)" data-toggle="dropdown" class="dropdown-toggle">Home <b class="caret"></b></a>
-                  <ul class="dropdown-menu">
-                    <li class="dropdown-item"><a href="index.html" class="nav-link">Option 1: Default Page</a></li>
-                    <li class="dropdown-item"><a href="index2.html" class="nav-link">Option 2: Application</a></li>
-                    <li class="dropdown-item"><a href="index3.html" class="nav-link">Option 3: Startup</a></li>
-                    <li class="dropdown-item"><a href="index4.html" class="nav-link">Option 4: Agency</a></li>
-                    <li class="dropdown-item"><a href="index5.html" class="nav-link">Option 5: Portfolio</a></li>
-                  </ul>
+                <li class="nav-item dropdown active"><a href="index.jsp" >Home <b class="caret"></b></a>
+                  
                 </li>
                 <li class="nav-item dropdown menu-large"><a href="#" data-toggle="dropdown" class="dropdown-toggle">Features<b class="caret"></b></a>
                   <ul class="dropdown-menu megamenu">
@@ -46,10 +40,10 @@
                     </li>
                   </ul>
                 </li>
-                <li class="nav-item dropdown menu-large"><a href="orderBoarder.jsp">의뢰 전체보기<b class="caret"></b></a>
+                <li class="nav-item dropdown menu-large"><a href="orderBoarder.jsp">의뢰게시판<b class="caret"></b></a>
                 </li>
-                <li class="nav-item dropdown menu-large"><a href="#" data-toggle="dropdown" class="dropdown-toggle">Portfolio <b class="caret"></b></a>
-                  <ul class="dropdown-menu megamenu">
+                <li class="nav-item dropdown menu-large"><a href="freelist.jsp">자유게시판 <b class="caret"></b></a>
+                <!--   <ul class="dropdown-menu megamenu">
                     <li>
                       <div class="row">
                         <div class="col-lg-6"><img src="img/template-homepage.png" alt="" class="img-fluid d-none d-lg-block"></div>
@@ -81,11 +75,11 @@
                         </div>
                       </div>
                     </li>
-                  </ul>
+                  </ul> -->
                 </li>
                 <!-- ========== FULL WIDTH MEGAMENU ==================-->
-                <li class="nav-item dropdown menu-large"><a href="#" data-toggle="dropdown" data-hover="dropdown" data-delay="200" class="dropdown-toggle">All Pages <b class="caret"></b></a>
-                  <ul class="dropdown-menu megamenu">
+                <li class="nav-item dropdown menu-large"><a href="question.jsp" data-toggle="dropdown">문의<b class="caret"></b></a>
+                  <!-- <ul class="dropdown-menu megamenu">
                     <li>
                       <div class="row">
                         <div class="col-md-6 col-lg-3">
@@ -172,15 +166,15 @@
                         </div>
                       </div>
                     </li>
-                  </ul>
+                  </ul> -->
                 </li>
                 <!-- ========== FULL WIDTH MEGAMENU END ==================-->
                    <!-- ========== Contact dropdown ==================-->
-                <li class="nav-item dropdown"><a href="javascript: void(0)" data-toggle="dropdown" class="dropdown-toggle">Contact <b class="caret"></b></a>
-                  <ul class="dropdown-menu">
+                <li class="nav-item dropdown"><a href="memberOrderMission" >마이페이지 <b class="caret"></b></a>
+         <!--          <ul class="dropdown-menu">
                     <li class="dropdown-item"><a href="contact.html" class="nav-link">Contact option 1</a></li>
                     <li class="dropdown-item"><a href="contact2.html" class="nav-link">Contact option 2</a></li>
-                  </ul>
+                  </ul> -->
                 </li>
                 <!-- ========== Contact dropdown end ==================-->
               </ul>
