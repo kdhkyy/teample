@@ -17,7 +17,7 @@
     </resultMap>
 
     <insert id="pointRecharge" parameterType="com.jang.point.PointVO">
-    insert into point_log values(11, #{ioPoint}, sysdate, #{mSeq},'IO_C')
+    insert into point_log values(payment_seq.nextval, #{ioPoint}, sysdate, #{mSeq},'IO_C')
     </insert>
     
 	<select id="pointListDetail" parameterType="int" resultMap="pointMap">

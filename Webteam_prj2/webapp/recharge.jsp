@@ -4,6 +4,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+<script src="//developers.kakao.com/sdk/js/kakao.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 		<!-- header(top 영역) -->
        <%@ include file="/include/header.jsp" %>
@@ -17,8 +18,41 @@ $(document).ready(function(){
   		}
   		else{
   			alert("asdf");
-  			$("#point_form").submit();
-  			alert("asdf2222");
+  			Kakao.init("faa87a2aad7e20db377f331ebba182dc");
+  			// 로그인 창을 띄웁니다.
+  			Kakao.Auth.login({
+  				  success: function(authObj) {
+  				    	alert(JSON.stringify(authObj));
+  				    	//console.log(JSON.stringify(authObj));
+  						var access_token = "";
+  						$.map(authObj, function(v,k){
+  							if(k == "access_token"){
+  								access_token = v;
+  								//console.log(access_token);
+  							}
+  						});
+  						
+  						//access_token을 가지고 서블릿 이동 ---------------------------------
+  						$.ajax({
+  					 		url : "/kakao_pay",
+  							method : "post",
+  							data : "access_token="+ access_token+"&total_amount="+$("#total_amount").val(), //JSON.stringify(obj),  access_token=ddd&id=111
+  							success : function(jsonObj) {
+  								console.log(jsonObj);
+  								$.map(jsonObj, function(v,k){
+  									if(k == "next_redirect_pc_url"){
+  										window.location.href = v;
+  									}
+  								}); 
+  							}
+  						});  //ajax end of
+  						
+  				  },
+  				  fail: function(err) {
+  					  	alert("결제 실패")
+  				    	console.log("카카오 인증 실패 : access_token needs..." + JSON.stringify(err));
+  				  }
+  			});
   		}
     });
 });
@@ -315,7 +349,7 @@ $(document).ready(function(){
                       <div class="form-group">
                         <span>
                         <label for="member_name" ><font color="red">충전 금액</font></label><br>
- 						<input id="point_text" name = "point_text" type="text" class="form-control">
+ 						<input id="total_amount" name = "total_amount" type="text" class="form-control">
  						<p>
  						<h6>예) 30000</h6>
  						</span>
