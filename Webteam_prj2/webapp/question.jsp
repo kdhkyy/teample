@@ -6,29 +6,27 @@
   <%@ include file="/include/header.jsp" %>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <head>
-  
+  <!-- htmlStr += "<input type='hidden' name='mSeq' value='"+vv.qText+"'>"; -->
 <script>
 $(document).ready(function(){	
-	/* var sendData = {"lat":mylat , "lng":mylng, "topn":3}; */
 				  $.ajax({ 
-					 
 							url:"/question",
-							type:"get",
+							type:"post",
 							contentType: "application/json; charset=UTF-8",
-							/*data: "MYKEY="+JSON.stringify(sendData),  */
-							success:function(res){
-									console.log(res);
+							success:function(returnStr){
+									console.log(returnStr);
 									var htmlStr="";
-						 				htmlStr += "<section class='get'>";
-						 			$.each(res, function(index, vv){
+						 				htmlStr += "<section class='post'>";
+						 			$.each(returnStr, function(index, vv){
 						 				htmlStr += "<div class='row'>";
 						 				htmlStr += "<div class='col-md-12'>";
-						 				htmlStr += "<h2 class='h4 mt-0'><a href='/question.jsp'>문의 합니다.</a></h2>";
+						 				htmlStr += "<h2 class='h4 mt-0'>문의 합니다.</a></h2>";
 						 				htmlStr += "<div class='d-flex flex-wrap justify-content-between text-xs'>";
-						 				htmlStr += "<p class='author-category'>Nickname <a href='#'>" + vv.mNickname + "</a></p>";
-						 				htmlStr += "<p class='date-comments'><a href='/question.jsp'> " + vv.qRegdate + " </a></p>";
+						 				htmlStr += "<p class='author-category'>Nickname <a href='#'>" + vv.mNickname + "</a> <a href='/question.jsp'>" + vv.qRegdate + "</a></p>";
+						 				htmlStr += "<p class='date-comments'><a href='/questionDetail?qSeq="+ vv.qSeq +"' class='btn btn-template-outlined btn-sm'>상세보기</a></p>";
 						 				htmlStr += "</div>";
 						 				htmlStr += "<p class='intro'>" + vv.qText + "</p>";
+						 				
 						 				htmlStr += "</div>";
 						 				htmlStr += "</div>";
 							  	});
@@ -63,24 +61,7 @@ $(document).ready(function(){
       <div id="content">
         <div class="container">
           <div class="row bar">
-            <div class="col-md-3">
-              <!-- MENUS AND FILTERS-->
-              <div class="panel panel-default sidebar-menu">
-                <div class="panel-heading">
-                  <h3 class="h4 panel-title">고객센터</h3>
-                </div>
-                <div class="panel-body">
-                  <ul class="nav nav-pills flex-column text-sm category-menu">
-                    <li class="nav-item"><a href="shop-category.html" class="nav-link d-flex align-items-center justify-content-between"><span>자주 들어오는 질문 </span></a>
-                    </li>
-                    <li class="nav-item"><a href="shop-category.html" class="nav-link active d-flex align-items-center justify-content-between"><span>FAQ </span></a>
-                    </li>
-                    <li class="nav-item"><a href="shop-category.html" class="nav-link d-flex align-items-center justify-content-between"><span>신고 </span></a>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </div>
+           
            
            <!-- 문의 내용 뿌려질 곳 -->
            <div id="blog-listing-medium" class="col-md-9">
@@ -102,8 +83,27 @@ $(document).ready(function(){
                   </ul>
                 </nav>
               </div>
-                <li class="next disabled"><a href="#" class="btn btn-template-outlined">글쓰기</a></li>
+                <style id="orderBtn" >.btn {float: right;}</style>
+                    <button type="button" id="orderBtn" onclick="location.href='questionWrite.jsp'"class="btn btn-lg btn-primary" >의뢰하기</button>
               </ul>
+            </div>
+             <div class="col-md-3">
+              <!-- MENUS AND FILTERS-->
+              <div class="panel panel-default sidebar-menu">
+                <div class="panel-heading">
+                  <h3 class="h4 panel-title">고객센터</h3>
+                </div>
+                <div class="panel-body">
+                  <ul class="nav nav-pills flex-column text-sm category-menu">
+                    <li class="nav-item"><a href="shop-category.html" class="nav-link d-flex align-items-center justify-content-between"><span>자주 들어오는 질문 </span></a>
+                    </li>
+                    <li class="nav-item"><a href="shop-category.html" class="nav-link active d-flex align-items-center justify-content-between"><span>FAQ </span></a>
+                    </li>
+                    <li class="nav-item"><a href="shop-category.html" class="nav-link d-flex align-items-center justify-content-between"><span>신고 </span></a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
             </div>
            </div>
            

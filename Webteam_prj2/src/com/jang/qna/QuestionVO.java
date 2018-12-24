@@ -11,7 +11,21 @@ public class QuestionVO {
 	private String qGubun;
 	private String mNickname;
 	private String gubunDetail;
+	private String aText;
+	public String getaText() {
+		return aText;
+	}
+	public void setaText(String aText) {
+		this.aText = aText;
+	}
+	private ArrayList<QuestionVO> qList;
 	
+	public ArrayList<QuestionVO> getqList() {
+		return qList;
+	}
+	public void setqList(ArrayList<QuestionVO> qList) {
+		this.qList = qList;
+	}
 	public int getqSeq() {
 		return qSeq;
 	}

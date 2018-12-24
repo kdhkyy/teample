@@ -21,14 +21,16 @@
       <result property="qRegdate" column="q_regdate" />
       <result property="qGubun" column="q_gubun" />
       <result property="mNickname" column="m_nickname" />  
-       <result property="gubunDetail" column="code_list_gubun_detail" />   
+      <result property="gubunDetail" column="code_list_gubun_detail" /> 
+      <result property="aText" column="a_text" />   
    </resultMap>
    
    <resultMap id="answerMap" type="com.jang.qna.AnswerVO">
       <id property="aSeq" column="a_seq" />
       <result property="qSeq" column="q_seq" />
-      <result property="atext" column="a_text" />
+      <result property="aText" column="a_text" />
       <result property="aRegdate" column="a_regdate" />
+      <result property="mNickname" column="m_nickname" />
    </resultMap>
   
    <resultMap id="memberMap" type="com.jang.qna.MemberVO">
@@ -58,41 +60,46 @@
       <result property="codeListGubunDetail" column="code_list_gubun_detail" />
       <result property="codeListEtc" column="code_list_etc" />
    </resultMap>
-    
+    <!-- m.m_Nickname, q.m_seq, q.q_Text, cl.code_list_gubun_detail, q.q_regdate from question q, member m, code_list cl -->
     <!-- /* 답글이없는 문의 리스트 조회 조회할때는 구분이 seq가 아니라 detail한 구분으로 나오도록(조인)*/ -->
-    <select id="questionSelect" resultMap="questionMap">
-      select m.m_Nickname, q.q_Text, cl.code_list_gubun_detail, q.q_regdate from question q, member m, code_list cl
-	where q.m_Seq = m.m_Seq and q.q_Gubun = cl.code_List_Gubun
+    <select id="questionAll" resultMap="questionMap">
+    select *
+	from question q, member m, code_list cl
+	where q.m_Seq = m.m_Seq 
+	and q.q_Gubun = cl.code_List_Gubun 
+	order by q.q_regdate desc
     </select>
      
     <!--   /*특정 회원의 문의내역 조회*/-->
-    <!-- <select id="memberquestionSelect" resultMap="question_select_1nn">
-     select q_seq, q_text, q_regdate, m.m_nickname from question q, member m
-	where q.m_seq = m.m_seq and m.m_nickname=#{mNickname}
-    </select> -->
+     <select id="questionOne" resultMap="questionMap">
+     select q.q_text, q.q_seq
+     from question q, member m
+	where q.m_seq = m.m_seq and q.q_seq =${value}
+    </select> 
     
     <!-- /*문의_seq에대한 답변 조회*/ -->
-    <!-- <select id="replyquestionSelect" resultMap="question_select_1nn">
-      select distinct a.a_text, a.a_regdate from answer a, question q
-	where a.m_seq = q.m_seq
-    </select> -->
+    <select id="answerAll" resultMap="answerMap"> 
+        select q_seq, a_text, a_regdate from answer
+	where q_seq =#{value}
+    </select>
     
     <!-- /*문의 insert*/ -->
-	<!-- <insert id="insertquestion" parameterType="com.jang.qna.QuestionVO">
+	<insert id="questionInsert" parameterType="com.jang.qna.QuestionVO">
 	insert into question(q_seq, m_seq, q_text, q_regdate, q_gubun)
-			values(#{qSeq}, #{mSeq}, #{qText}, sysdate, #{qGubun})
-	</insert> -->
+			values(qu_seq.nextval, 1, #{qText}, sysdate, 'QE')
+	</insert>
     
     <!-- /*문의에 대한 답변 insert */ -->
-   <!--  <insert id="replyinsertquestion" parameterType="com.jang.qna.AnswerVO">
+	  <insert id="answerUpdate" parameterType="com.jang.qna.AnswerVO">
 	insert into answer(a_seq, q_seq, a_text, a_regdate)
-			values(#{aSeq}, #{qSeq}, #{aText}, sysdate)
-	</insert> -->
+			values(qu_seq.nextval, #{qSeq}, #{aText}, sysdate)
+	</insert>
 	
 	<!-- /*문의 수정*/ -->
-	<!-- <update id="updatequestion" parameterType="com.jang.qna.QuestionVO">
-	update question set q_text=#{qText}, q_regdate = sysdate, q_gubun=#{qGubun}
-		  where q_seq = #{qSeq}
-	</update> -->
+	  <update id="questionUpdate" parameterType="com.jang.qna.QuestionVO">
+	update question 
+	set q_text=#{qText}, q_regdate = sysdate, q_gubun='QE'
+	where q_seq=#{qSeq}
+	</update>  
    
 </mapper>   

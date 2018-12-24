@@ -6,6 +6,15 @@ public class AnswerVO {
 	private int qSeq;
 	private String aText;
 	private String aRegdate;
+	private String mNickname;
+	
+	
+	public String getmNickname() {
+		return mNickname;
+	}
+	public void setmNickname(String mNickname) {
+		this.mNickname = mNickname;
+	}
 	public int getaSeq() {
 		return aSeq;
 	}
