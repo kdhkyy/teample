@@ -41,9 +41,10 @@ $(document).ready(function(){
             </div>
             <div class="col-md-5">
               <ul class="breadcrumb d-flex justify-content-end">
-                <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-                <li class="breadcrumb-item"><a href="free.jsp">자유게시판</a></li>
-                <li class="breadcrumb-item active">글작성</li>
+                <li class="breadcrumb-item"><a href="index.jsp">Home</a></li>
+                <li class="breadcrumb-item"><a href="freelsit.jsp">자유게시판</a></li>
+                <li class="breadcrumb-item"><a href="/freeDetail?seq=${RES_VO.fSeq}">게시글 상세보기</a></li>
+                <li class="breadcrumb-item active">수정</li>
               </ul>
             </div>
           </div>
@@ -55,13 +56,13 @@ $(document).ready(function(){
             <!-- LEFT COLUMN _________________________________________________________-->
             <div id="blog-post" class="col-md-12">
                 <div id="comment-form">
-                <h4 class="text-uppercase">글 작성하기</h4>
-                <form method="POST" action="/freeInsert" id="insertForm" class="insertForm" name="insertForm">
+                <h4 class="text-uppercase">글 수정하기</h4>
+                <form method="POST" action="/freeUpdate" id="insertForm" class="insertForm" name="insertForm">
                   <div class="row">
                     <div class="col-sm-6">
                       <div class="form-group">
                         <label for="name">제목<span class="required text-primary">*</span></label>
-                        <input id="name" type="text" class="form-control" name="freeTitle">
+                        <input id="name" type="text" class="form-control" name="freeTitle" value="${RES_VO.fTitle}">
                       </div>
                     </div>
                   </div>
@@ -69,13 +70,14 @@ $(document).ready(function(){
                     <div class="col-sm-12">
                       <div class="form-group">
                         <label for="comment">글내용<span class="required text-primary">*</span></label>
-                        <textarea name="freeText" id="comment" rows="8" class="form-control" ></textarea>
+                        <textarea name="freeText" id="comment" rows="16" class="form-control"  >${RES_VO.fText}</textarea>
                       </div>
                     </div>
+                    <input type="hidden" id="fSeq" name="fSeq" value="${RES_VO.fSeq}">
                   </div>
                   <div class="row">
                     <div class="col-sm-12 text-right">
-                      <button name="regBtn" class="btn btn-template-outlined"><i class="fa fa-comment-o"></i>작성확인</button>
+                      <button name="regBtn" class="btn btn-template-outlined"><i class="fa fa-comment-o"></i>수정확인</button>
                     </div>
                   </div>
                 </form>

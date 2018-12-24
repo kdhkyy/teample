@@ -5,7 +5,7 @@
 <html>
   <head>
     <%@ include file="/include/header.jsp" %> 
- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script>
 $(document).ready(function(){
 	console.log("Ang!");
@@ -25,31 +25,7 @@ $(document).ready(function(){
     });
 });     
 </script> 
-  <!-- <script>
-        $(document).ready(function(){
-				
-	    	$.ajax({                        
-  				url:"/freeDetail",
-  				type:"post",
-  				data:
-  				success:function(cres){
-  					console.log(cres);
-  					$.each(cres, function(index, vv){
-  		  					var reshtml="<tr>";
-  							reshtml+="<th>"+vv.mNickName+"</th>";
-     						reshtml+="<td>"+vv.rText+"</td>";
-     						reshtml+="<td><lavel><inputType='hidden' value='"+vv.rSeq+"'></lavel></td>";
-     						reshtml+="<td>"+vv.rRegdate+"</td>";
-     						reshtml+="</tr>";
-  				  });  
-  					$(".freeComList").html(reshtml); 
-  				}
-  			})
-    /*     $("#viewAllBtn").click(function(){   
-          }); */	
-      })
-      </script>  -->
-   </head>
+</head>
   <body>
     <div id="all">
     <%@ include file="/include/topbar.jsp" %>
@@ -64,8 +40,11 @@ $(document).ready(function(){
             </div>
             <div class="col-md-5">
               <ul class="breadcrumb d-flex justify-content-end">
-                <li class="breadcrumb-item"><a href="index.html">게시판</a></li>
+                <li class="breadcrumb-item"><a href="index.jsp">게시판</a></li>
+          		<li class="breadcrumb-item"><a href="freelist.jsp">의뢰 상세보기</a></li>
                 <li class="breadcrumb-item active">자유게시판</li>
+
+                
               </ul>
             </div>
           </div>
@@ -89,6 +68,13 @@ $(document).ready(function(){
                     </div>
                   </div> 
                 <p class="lead">${RES_VO.fText}</p>
+               <div class="col-md-3">
+               <p class="text-center">
+                <button type="submit" onclick="location.href='/freeUpdate?fSeq=${RES_VO.fSeq}'" class="btn btn-sm btn-info">수정하기</button>
+                <button type="submit" onclick="location.href='/freeDelete?fSeq=${RES_VO.fSeq}'" class="btn btn-sm btn-warning">삭제하기</button>
+                <button type="submit" class="btn btn-sm btn-danger">신고하기</button>
+                </p>
+                </div>
                 <div class="heading">
                   <h3>댓글</h3>
                 </div>

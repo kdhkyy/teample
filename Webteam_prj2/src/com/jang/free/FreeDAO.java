@@ -73,11 +73,23 @@ public class FreeDAO {
 		int res= 0;
 		try {
 			conn = MyBatisFactory.getFactory().openSession();
-	         res = conn.update("freeNameSpace.freeDelete",fvo);
+	         res = conn.update("freeNameSpace.freeUpdate",fvo);
 	         conn.commit();
 		}finally {
 			conn.close();
 		}
 		return res;
 	}
+	public int freeDelete(int fseq) {
+	      SqlSession conn =null;
+	      int res = 0;
+	      try {
+	         conn = MyBatisFactory.getFactory().openSession();
+	         res = conn.delete("freeNameSpace.freeDelete",fseq);  
+	         conn.commit();
+	      } finally {
+	         conn.close();
+	      }
+	      return res;
+	   }
 }

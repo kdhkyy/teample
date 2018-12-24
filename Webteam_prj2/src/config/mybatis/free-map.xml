@@ -14,7 +14,7 @@
     <select id="freeAll" resultMap="freeMap">
       select *
       from free_board f,member m
-      where m.m_seq=f.m_seq
+      where m.m_seq=f.m_seq and f.f_yn='N'
       order by f.f_seq desc 
     </select>
     
@@ -23,11 +23,22 @@
       from free_board f,member m
       where m.m_seq=f.m_seq and f.f_seq=${value}
     </select>
+   <insert id="freeInsert" parameterType="com.jang.free.FreeVO">
+       insert into free_board
+       (f_seq,f_title,f_regdate,f_text,m_seq,f_yn) 
+       values
+       (test_seq.nextval,#{fTitle},sysdate,#{fText},1,'N')
+    </insert>
      <update id="freeUpdate" parameterType="com.jang.free.FreeVO">
          update free_board
          set f_title=#{fTitle},f_text=#{fText}
          where f_seq=#{fSeq}
     </update> 
+     <update id="freeDelete" parameterType="Integer">
+         update free_board
+         set f_yn='Y'
+         where f_seq=#{value} and f_yn='N'
+  	</update> 
     <resultMap id="freeComMap" type="com.jang.free.FreeComVO">
     	<result property="rSeq" column="r_seq" />
     	<result property="rText" column="r_text" />
@@ -47,12 +58,7 @@
       from free_board_comment c,free_board f,member m
       where c.f_seq= f.f_seq and m.m_seq = c.m_seq and c.f_seq=${value}
     </select>
-   <insert id="freeInsert" parameterType="com.jang.free.FreeVO">
-       insert into free_board
-       (f_seq,f_title,f_regdate,f_text,m_seq,f_yn) 
-       values
-       (test_seq.nextval,#{fTitle},sysdate,#{fText},1,'N')
-    </insert>
+   
     <insert id="freeComInsert" parameterType="com.jang.free.FreeComVO">
        insert into free_board_comment
        (r_seq,r_text,m_seq,f_seq,r_regdate) 
