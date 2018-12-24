@@ -9,7 +9,7 @@
  </head>
   <body>
     <div id="all">
-        <%@ include file="/include/topbar.jsp" %>
+        <%@ include file="/include/topbarlog.jsp" %>
     <%@ include file="/include/loginmadal.jsp" %>
     <%@ include file="/include/navbar.jsp" %> 
       

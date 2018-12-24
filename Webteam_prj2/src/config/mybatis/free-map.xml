@@ -14,7 +14,7 @@
     <select id="freeAll" resultMap="freeMap">
       select *
       from free_board f,member m
-      where m.m_seq=f.m_seq and f.f_yn='N'
+      where m.m_seq=f.m_seq and f.f_yn='n'
       order by f.f_seq desc 
     </select>
     
