@@ -25,7 +25,7 @@
 
    <resultMap id="memberMap" type="com.jang.member.MemberVO">
       <id property="mSeq" column="m_seq" />
-      <result property="mAccountHolder" column="m_account_holder" />
+      
       <result property="mAccountNumber" column="m_account_number" />
       <result property="mAddress" column="m_address" />
       <result property="mAddressDetail" column="m_address_detail" />
@@ -34,14 +34,16 @@
       <result property="mEmail" column="m_email" />
       <result property="mFrom" column="m_from" />
       <result property="mGubun" column="m_gubun" />
-      <result property="mLat" column="m_lat" />
-      <result property="mLng" column="m_lng" />
       <result property="mNickname" column="m_nickname" />
       <result property="mPhone" column="m_phone" />
       <result property="mPush" column="m_push" />
       <result property="mRegdate" column="m_regdate" />
       <result property="mZipcode" column="m_zipcode" />
-      <result property="gradeGubun" column="grade_gubun" />
+      <result property="gRadeGubun" column="grade_gubun" />
+      <result property="mPw" column="m_pw"/>
+      <result property="mAddressJibun" column="m_address_jibun"/>
+      <result property="mPimg" column="m_pimg"/>
+      <result property="mPimgSys" column="m_pimg_sys"/>
    </resultMap>
    
    
@@ -53,7 +55,7 @@
       <result property="oText" column="o_text" />
       <result property="oPoint" column="o_point" />
       <result property="oPicture" column="o_picture" />
-      <result property="mNickName" column="m_nickname" />
+      <result property="mNickname" column="m_nickname" />
       <result property="oAddress" column="o_address" />
       <result property="oLat" column="o_lat" />
       <result property="oLng" column="o_lng" />
@@ -80,9 +82,31 @@
       <result property="sseq" column="sseq" />
    </resultMap>
  -->
- 	<select id="memberPayment" parameterType="int" resultMap="memberMap">
- 	 select * from member where m_seq = #{value}
- 	</select>
+ <!-- 로그인 -->
+ 	<select id="memberLogin" resultMap="memberMap" parameterType="com.jang.member.MemberVO">
+ 	select * from member
+ 	where m_email= #{mEmail} and m_pw= #{mPw} and m_delete_yn='n'
+ 	 </select>
+ <!-- /로그인 -->
+ 
+ <!-- 회원가입 12월21일 오후6시 33분 수정중인 현재-->
+ 
+ <insert id="memberRegister" parameterType="com.jang.member.MemberVO">
+ insert into member(m_seq, m_nickname, m_from, m_email, m_account_number, m_bank,
+ 					m_phone, m_regdate, m_address, m_delete_yn, m_gubun,
+ 					m_push, m_zipcode, m_address_detail,
+ 	          grade_gubun, m_pw, m_address_jibun, m_pimg, m_pimg_sys)
+ 
+ values(m_sequence.nextval, #{mNickname}, #{mFrom}, #{mEmail}, #{mAccountNumber}, #{mBank},
+ 		#{mPhone}, sysdate, #{mAddress}, 'n', 'u',
+ 		#{mPush}, #{mZipcode}, #{mAddressDetail},
+ 		'gb', #{mPw}, #{mAddressJibun}, #{mPimg}, #{mPimgSys})
+ 		</insert>
+ 
+ <!-- /회원가입 -->
+ 
+ 
+ 
 	<select id="memberMission" parameterType="int"  resultMap="orderMap">
        select o.o_regdate,o.o_text,o.o_point,c.code_list_gubun_detail, m.m_nickname
       from order_board o, member m, code_list c
@@ -97,6 +121,9 @@
       where o.k_seq=m.m_seq(+) and o.order_gubun= c.code_list_gubun
     </select>
     
+    
+   
+
 	<select id="memberSerachMission" resultMap="orderMap">
       select o.o_point, o.o_seq,o.o_title,o.o_regdate, o.o_text,o.k_seq
       from order_board o, member m

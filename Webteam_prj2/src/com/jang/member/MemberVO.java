@@ -1,31 +1,7 @@
 package com.jang.member;
 
 public class MemberVO {
-	private int mSeq;
-	private String mAccountHolder;
-	private String mAccountNumber;
-	private String mAddress;
-	private String mAddressDetail;
-	private String mBank;
-	private String mDeleteYn;
-	private String mEmail;
-	private String mFrom;
-	private String mGubun;
-	private float mLat;
-	private float mLng;
-	private String mNickname;
-	private String mPhone;
-	private String mPush;
-	private String mRegdate;
-	private String mZipcode;
-	private String gradeGubun;
 	
-	public int getmSeq() {
-		return mSeq;
-	}
-	public void setmSeq(int mSeq) {
-		this.mSeq = mSeq;
-	}
 	public String getmAccountHolder() {
 		return mAccountHolder;
 	}
@@ -62,11 +38,11 @@ public class MemberVO {
 	public void setmDeleteYn(String mDeleteYn) {
 		this.mDeleteYn = mDeleteYn;
 	}
-	public String getMemail() {
+	public String getmEmail() {
 		return mEmail;
 	}
-	public void setMemail(String memail) {
-		this.mEmail = memail;
+	public void setmEmail(String mEmail) {
+		this.mEmail = mEmail;
 	}
 	public String getmFrom() {
 		return mFrom;
@@ -80,18 +56,8 @@ public class MemberVO {
 	public void setmGubun(String mGubun) {
 		this.mGubun = mGubun;
 	}
-	public float getmLat() {
-		return mLat;
-	}
-	public void setmLat(float mLat) {
-		this.mLat = mLat;
-	}
-	public float getmLng() {
-		return mLng;
-	}
-	public void setmLng(float mLng) {
-		this.mLng = mLng;
-	}
+	
+	
 	public String getmNickname() {
 		return mNickname;
 	}
@@ -122,12 +88,82 @@ public class MemberVO {
 	public void setmZipcode(String mZipcode) {
 		this.mZipcode = mZipcode;
 	}
-	public String getGradeGubun() {
-		return gradeGubun;
+	public String getgRadeGubun() {
+		return gRadeGubun;
 	}
-	public void setGradeGubun(String gradeGubun) {
-		this.gradeGubun = gradeGubun;
+	public void setgRadeGubun(String gRadeGubun) {
+		this.gRadeGubun = gRadeGubun;
+	}
+	public String getmPw() {
+		return mPw;
+	}
+	public void setmPw(String mPw) {
+		this.mPw = mPw;
+	}
+	public int getmSeq() {
+		return mSeq;
+	}
+	public void setmSeq(int mSeq) {
+		this.mSeq = mSeq;
 	}
 	
+	public String getmPimg() {
+		return mPimg;
+	}
+	public void setmPimg(String mPimg) {
+		this.mPimg = mPimg;
+	}
+	public String getmPimgSys() {
+		return mPimgSys;
+	}
+	public void setmPimgSys(String mPimgSys) {
+		this.mPimgSys = mPimgSys;
+	}
+
+	private String mPimg; //
+	private String mPimgSys;//
+	private String mAccountNumber;//
+	private String mAddress;
+	private String mAddressDetail;//
+	private String mBank;//
+	private String mDeleteYn;
+	private String mEmail;//
+	private String mFrom;//
+	private String mGubun;
+/*	
+	private Double mLat;
+	private Double mLng;
+	public Double getmLat() {
+		return mLat;
+	}
+	public void setmLat(Double mLat) {
+		this.mLat = mLat;
+	}
+	public Double getmLng() {
+		return mLng;
+	}
+	public void setmLng(Double mLng) {
+		this.mLng = mLng;
+	}
+*/
+	
+	private String mNickname;//
+	private String mPhone;//
+	private String mPush;//
+	private String mRegdate;
+	private String mZipcode;//
+	private String gRadeGubun;
+	private String mPw;//
+	private String mAccountHolder;
+	private String mAddressJibun;//
+	private int mSeq;
+	
+	
+	public String getmAddressJibun() {
+		return mAddressJibun;
+	}
+	public void setmAddressJibun(String mAddressJibun) {
+		this.mAddressJibun = mAddressJibun;
+	}
 	
 }

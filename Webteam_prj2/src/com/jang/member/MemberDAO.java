@@ -15,19 +15,55 @@ import com.jang.order.orderVO;
 
 public class MemberDAO {
 
-	
-	public MemberVO memberPayment(int mSeq){
-		SqlSession conn = null;
-		MemberVO vo = new MemberVO();
-		try {
-	         conn = MyBatisFactory.getFactory().openSession(); 
-	         vo =conn.selectOne("memberPayment", mSeq);   
-	      }catch(Exception e) {
-	    	  conn.close();
-	      }
-	      return vo;
+	/**
+	 * 로그인 정보 가져오기
+	 * @param uvo
+	 * @return
+	 */
+	public MemberVO select(MemberVO uvo) {  //login
+		SqlSession conn =null;
+		MemberVO vo2 = null;
 		
+		try {
+			conn = MyBatisFactory.getFactory().openSession();
+			vo2 = conn.selectOne("memberNameSpace.memberLogin", uvo);
+		} finally {
+			conn.close();
+		}
+		return vo2;
 	}
+	/**
+	 * 회원가입 입력정보 집어넣기
+	 * @param mvo
+	 * @return
+	 */
+	public int insert(MemberVO mvo) {
+		SqlSession conn =null;
+		int res = 0;
+		try { 
+			conn = MyBatisFactory.getFactory().openSession();
+			res = conn.insert("memberNameSpace.memberRegister", mvo);
+			conn.commit();
+		} finally {
+			conn.close();
+		}
+		return res;
+	}
+	
+	 public MemberVO memberPayment(int mSeq){
+	      SqlSession conn = null;
+	      MemberVO vo = new MemberVO();
+	      try {
+	            conn = MyBatisFactory.getFactory().openSession(); 
+	            vo =conn.selectOne("memberPayment", mSeq);   
+	         }catch(Exception e) {
+	            conn.close();
+	         }
+	         return vo;
+	      
+	   }
+
+	
 
 	 public  ArrayList<orderVO> memberOrderList() {
 	      SqlSession conn =null;

@@ -170,7 +170,7 @@
                 </li>
                 <!-- ========== FULL WIDTH MEGAMENU END ==================-->
                    <!-- ========== Contact dropdown ==================-->
-                <li class="nav-item dropdown"><a href="memberOrderMission" >마이페이지 <b class="caret"></b></a>
+                <li class="nav-item dropdown"><a href="memberOrderMission.jsp" >마이페이지 <b class="caret"></b></a>
          <!--          <ul class="dropdown-menu">
                     <li class="dropdown-item"><a href="contact.html" class="nav-link">Contact option 1</a></li>
                     <li class="dropdown-item"><a href="contact2.html" class="nav-link">Contact option 2</a></li>
