@@ -52,10 +52,10 @@
                  <input type="hidden" name="Email" id="Email">
                   <input type="hidden" name="id_token" id="id_token">
                 <div class="form-group">
-                  <input id="email_modal" type="text" placeholder="email" class="form-control">
+                  <input id="userid" name="userid" type="text" placeholder="email" class="form-control">
                 </div>
                 <div class="form-group">
-                  <input id="password_modal" type="password" placeholder="password" class="form-control">
+                  <input id="userpw" name="userpw" type="password" placeholder="password" class="form-control">
                 </div>
                 <p class="text-center">
                   <button  class="btn btn-template-outlined"><i class="fa fa-sign-in"></i> Log in</button>
