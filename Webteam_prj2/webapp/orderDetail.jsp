@@ -4,13 +4,20 @@
 <html>
   <head>
   <%@ include file="/include/header.jsp" %>
+  <script>
+  $(document).ready(function(){
+	  $("#chatBtn").click(function(){
+		  sessionStorage.setItem('SESS_OSEQ', $("#RES_VO.oSeq").val());
+window.open("chattest.jsp?o_seq=${RES_VO.oSeq}", '_blank', 'toolbar=no, location=no, status=no, menubar=no, scrollbars=auto, resizqable=no,directories=no, width=400,height=400,top=100,left=100')
+	  })
+})
+</script>
    </head>
   <body>
     <div id="all">
      <%@ include file="/include/topbar.jsp" %>
     <%@ include file="/include/loginmadal.jsp" %>
     <%@ include file="/include/navbar.jsp" %> 
-      
       <div id="heading-breadcrumbs">
         <div class="container">
           <div class="row d-flex align-items-center flex-wrap">
@@ -37,9 +44,10 @@
               <div id="productMain" class="row">
                 <div class="col-sm-6">
                   <div data-slider-id="1" class="owl-carousel shop-detail-carousel">
-                    <div> <img src="img/detailbig1.jpg" alt="" class="img-fluid"></div>
-                    <div> <img src="img/detailbig2.jpg" alt="" class="img-fluid"></div>
-                    <div> <img src="img/detailbig3.jpg" alt="" class="img-fluid"></div>
+                  <c:forEach var="vo" items="${RES_VO.plist}" varStatus="status">
+                            <div> <img src="/cdir/${vo.picSysname}"  alt="" class="img-fluid"></div>
+                      </c:forEach>
+                    <input type="hidden" value="${RES_VO.oSeq}"/>
                   </div>
                 </div>
                 <div class="col-sm-6">
@@ -53,15 +61,16 @@
                     </form>
                   </div>
                   <div data-slider-id="1" class="owl-thumbs">
-                    <button class="owl-thumb-item"><img src="img/detailsquare.jpg" alt="" class="img-fluid"></button>
-                    <button class="owl-thumb-item"><img src="img/detailsquare2.jpg" alt="" class="img-fluid"></button>
-                    <button class="owl-thumb-item"><img src="img/detailsquare3.jpg" alt="" class="img-fluid"></button>
+                  <c:forEach var="vo" items="${RES_VO.plist}" varStatus="status">
+                            <button class="owl-thumb-item"><img src="/cdir/${vo.picSysname}" alt="" class="img-fluid"></button>
+                      </c:forEach>
                   </div>
                   <p class="text-center">
                         <button type="submit" class="col-lg-12 btn btn-template-outlined"><i class="fa fa-shopping-cart"></i>수주하기</button><br><br>
                         <button type="submit" onclick="location.href='/orderUpdateServlet?oSeq=${RES_VO.oSeq}'" class="col-md-12 btn btn-template-outlined"><i class="fa fa-shopping-cart"></i>수정하기</button><br><br>
                         <button type="submit" onclick="location.href='/OrderDelete?oSeq=${RES_VO.oSeq}'" class="col-md-12 btn btn-template-outlined"><i class="fa fa-shopping-cart"></i>삭제하기</button><br><br>
                         <button type="submit" class="col-md-12 btn btn-template-outlined"><i class="fa fa-shopping-cart"></i>신고하기</button>
+                        <button  class="col-md-12 btn btn-template-outlined" id="chatBtn"><i class="fa fa-shopping-cart"></i>채팅하기</button>
                       </p>
                 </div>
                 
@@ -83,7 +92,17 @@
           </div>
         </div>
       </div>
-      
+      <!-- GET IT-->
+      <div class="get-it">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-8 text-center p-3">
+              <h3>Do you want cool website like this one?</h3>
+            </div>
+            <div class="col-lg-4 text-center p-3">   <a href="#" class="btn btn-template-outlined-white">Buy this template now</a></div>
+          </div>
+        </div>
+      </div>
       <!-- FOOTER -->
      <%@ include file="/include/footer.jsp" %> 
     </div>
