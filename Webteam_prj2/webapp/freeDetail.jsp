@@ -21,10 +21,9 @@ $(document).ready(function(){
            return false;
         }
         $("#insertForm").submit();
-       
     });
-});     
-</script> 
+});
+</script>
 </head>
   <body>
     <div id="all">

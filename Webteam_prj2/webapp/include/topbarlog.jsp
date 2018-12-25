@@ -1,6 +1,25 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"%>
 <!DOCTYPE html>
-
+<script type="text/javascript">
+	$(document).ready(function(){
+		$.ajax({ //현재 포인트
+				url:"/pointOneServlet",
+				type:"POST",
+				success:function(res){
+					console.log(res);
+				 	$("#now_point").html("POINT : "+"<font color=\'black\'>"+res+"</font>");
+				}
+			})
+		/* $.ajax({ //이름 가져오는 부분
+				url:"/pointOneServlet",
+				type:"GET",
+				success:function(res){
+					console.log(res);
+				 	
+				}
+		}) */
+	});
+</script>
       <div class="top-bar">
         <div class="container">
           <div class="row d-flex align-items-center">
@@ -21,7 +40,7 @@
                   <div class="testimonial-info d-flex">
                     <div class="title">
                       <h5>John McIntyre</h5>
-                      <p>CEO, TransTech</p>
+                       <span id = "now_point" class="h6 counter"></span>
                     </div>
                     <div class="avatar"><img alt="" src="img/person-1.jpg" class="img-fluid"></div>
                   </div>

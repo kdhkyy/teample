@@ -6,6 +6,11 @@
 <html>
   <head>
     <%@ include file="/include/header.jsp" %>
+    <script>
+    $(document).ready(function(){
+    	
+    });
+    </script>
  </head>
   <body>
     <div id="all">
