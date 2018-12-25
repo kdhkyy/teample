@@ -13,16 +13,16 @@ import javax.servlet.http.HttpServletResponse;
 import com.google.gson.Gson;
 
 /**
- * Servlet implementation class orderDetailServlet
+ * Servlet implementation class ChatOpenServlet
  */
-@WebServlet("/orderDetail")
-public class orderDetailServlet extends HttpServlet {
+@WebServlet("/ChatOpen")
+public class ChatOpenServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public orderDetailServlet() {
+    public ChatOpenServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -32,23 +32,26 @@ public class orderDetailServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		int oseq=Integer.parseInt(request.getParameter("seq"));
-		System.out.println(oseq);
-		OrderDAO oDAO = new OrderDAO();
-	    orderVO res=new orderVO();
-	    res=oDAO.selectOne(oseq);
-		request.setAttribute("RES_VO", res);
-		System.out.println(res.getPlist().size());
-		System.out.println(res.getPlist().get(0).getpicSysname());
-		request.getRequestDispatcher("orderDetail.jsp").forward(request, response);
-	
+		response.getWriter().append("Served at: ").append(request.getContextPath());
 	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-	
+
+		int oSeq=Integer.parseInt(request.getParameter("oseq"));
+		System.out.println(oSeq);
+		
+		OrderDAO odao = new OrderDAO();
+		ArrayList<ChatVO> reslist = odao.selectChatAll(oSeq);
+		Gson gson= new Gson();
+		response.setContentType("application/json; encoding=UTF-8");
+		response.setCharacterEncoding("UTF-8");
+		String res=gson.toJson(reslist);
+		PrintWriter out =response.getWriter();
+		out.println(res);
+		
 	}
 
 }

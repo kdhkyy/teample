@@ -30,6 +30,7 @@
       <result property="orderGubun" column="order_gubun" />
       <result property="orderYn" column="ORDER_YN" />
    </resultMap>
+   
     <resultMap id="orderPicMap" type="com.jang.order.OrderPicVO">
       <id property="picSeq" column="pic_seq" />
       <result property="picOriginname" column="pic_originname" />
@@ -38,12 +39,22 @@
       <result property="oSeq" column="o_seq" />
       <result property="orderYn" column="order_yn" />
    </resultMap>
+
+   <resultMap id="chatMap" type="com.jang.order.ChatVO">
+      <id property="mSeq" column="m_seq" />
+      <result property="cText" column="c_text" />
+      <result property="oSeq" column="o_seq" />
+      <result property="cTime" column="c_time" />
+      <result property="clSeq" column="cl_seq" />
+      <result property="mNickname" column="m_nickname" />
+   </resultMap>
 	
 	 <select id="orderPicdetail" parameterType="Integer" resultMap="op_1n">
-      select o.*,nvl(p.pic_ppath,'c:/uploads') as ppath,
-		nvl(p.pic_sysname, '000.png') as pname 
-		from order_board o,order_pic p
+		select o.*,m.*,nvl(p.pic_ppath,'c:/uploads') as pic_ppath,
+		nvl(p.pic_sysname, '000.png') as pic_sysname 
+		from order_board o,order_pic p,member m
 		where o.o_seq=p.o_seq(+)
+    	and o.m_seq=m.m_seq
 		and o.o_seq=#{value}
     </select>
     
@@ -88,6 +99,24 @@
          set order_yn='Y'
          where o_seq=#{value} and order_yn='N'
   </update> 
-   
+  
+  <insert id="chatInsert" parameterType="com.jang.order.ChatVO">
+       insert into chat_log
+       (cl_seq,m_seq,c_text,o_seq,c_time) 
+       values
+       (chat_seq.nextval,#{mSeq},#{cText},#{oSeq},sysdate)
+    </insert>
+    
+    <select id="chatAll" parameterType="int" resultMap="chatMap"> 
+      select *
+	  from chat_log c,member m
+	  where c.m_seq=m.m_seq and c.o_seq=#{value}
+    </select>
+    
+    <select id="seqToNick" parameterType="int" resultMap="chatMap"> 
+      select m_nickname
+	  from member
+	  where m_seq=#{value}
+    </select> 
    
 </mapper>   

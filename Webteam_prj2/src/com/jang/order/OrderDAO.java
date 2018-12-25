@@ -34,7 +34,7 @@ public class OrderDAO {
 	      orderVO res =null;
 	      try {
 	         conn = MyBatisFactory.getFactory().openSession(); 
-	         res =(orderVO)conn.selectOne("orderNameSpace.orderOne",oseq);   
+	         res =(orderVO)conn.selectOne("orderNameSpace.orderPicdetail",oseq);   
 	      }catch(Exception e) {
 	    	  conn.close();
 	      }
@@ -101,6 +101,44 @@ public class OrderDAO {
 	         e.printStackTrace();
 	      }
 	      return next_sseq;
+	   }
+   
+   public int chatLogInsert(ChatVO cvo) {
+	      int res = 0;
+	      SqlSession conn =null;
+	      try { 
+	    	  conn = MyBatisFactory.getFactory().openSession();
+	         res = conn.insert("orderNameSpace.chatInsert", cvo);
+	         conn.commit();
+	      } catch (Exception e) {
+		         conn.rollback();
+		         e.printStackTrace();
+		      }
+	      return res;
+	   }
+   
+   public  ArrayList<ChatVO> selectChatAll(int oseq) {
+	      SqlSession conn =null;
+	      ArrayList<ChatVO> resList =null;
+	      try {
+	         conn = MyBatisFactory.getFactory().openSession(); 
+	         resList =(ArrayList)conn.selectList("orderNameSpace.chatAll",oseq);   
+	      }catch(Exception e) {
+	    	  conn.close();
+	      }
+	      return resList;
+	   }
+   
+   public  ChatVO chatSeqToNick(int oseq) {
+	      SqlSession conn =null;
+	      ChatVO res =null;
+	      try {
+	         conn = MyBatisFactory.getFactory().openSession(); 
+	         res =conn.selectOne("orderNameSpace.seqToNick",oseq);   
+	      }catch(Exception e) {
+	    	  conn.close();
+	      }
+	      return res;
 	   }
    
    

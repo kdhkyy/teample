@@ -5,20 +5,24 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Enumeration;
+import java.util.HashMap;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.apache.ibatis.session.SqlSession;
 
-import com.oreilly.servlet.MultipartRequest;
+import com.google.gson.Gson;
+import com.google.gson.JsonElement;
 import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 import com.oreilly.servlet.multipart.FilePart;
 import com.oreilly.servlet.multipart.FileRenamePolicy;
 import com.oreilly.servlet.multipart.MultipartParser;
+import com.oreilly.servlet.multipart.ParamPart;
 import com.oreilly.servlet.multipart.Part;
 
 import java.sql.Connection;
@@ -59,152 +63,71 @@ public class orderInsertServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		//		request.setCharacterEncoding("UTF-8");
-		//		response.setCharacterEncoding("UTF-8");
-		//		String orderTitle = request.getParameter("orderTitle");
-		//		String orderPoint = request.getParameter("orderPoint");
-		//		String placename = request.getParameter("placename");
-		//		String lat = request.getParameter("lat");
-		//		String lng = request.getParameter("lng");
-		//		String orderText = request.getParameter("orderText");
-		//		
-		//		orderVO ovo= new orderVO();
-		//		ovo.setoTitle(orderTitle);
-		//		ovo.setoPoint(Integer.parseInt(orderPoint));
-		//		ovo.setoAddress(placename);
-		//		ovo.setoLat(Double.parseDouble(lat));
-		//		ovo.setoLng(Double.parseDouble(lng));
-		//		ovo.setoText(orderText);
-		//		
-		//		OrderDAO odao= new OrderDAO();
-		//		if(odao.orderInsert(ovo)==1)
-		//		{
-		//			System.out.println("insert Done.....");
-		//			response.sendRedirect("orderBoarder.jsp");
-		//		}
-		
-		
 		OrderDAO odao = new OrderDAO();
 		orderVO ovo= new orderVO();
-		OrderPicVO opvo= new OrderPicVO();
-		
-		ArrayList<OrderPicVO> opvolist = new ArrayList<OrderPicVO>();
-
 		SqlSession conn = MyBatisFactory.getFactory().openSession();
-		
-		String orderTitle=null;
-			String orderPoint=null;
-			String placename=null;
-			String lat=null;
-			String lng=null;
-			String orderText=null;
-
 		try {
-			String saveDirectory = "C:/uploads";
-			int maxPostSize = 1000000;
-			String encoding = "UTF-8";
-			FileRenamePolicy policy = new DefaultFileRenamePolicy();
-			MultipartRequest mrequest = null;
-			try {
-				
-				mrequest = new MultipartRequest(request,saveDirectory, maxPostSize, encoding, policy);
-				
-				//1. 파일 copy : in/output stream
-				//2. 중복파일 rename         
-			} catch (Exception e) {
-				response.setContentType("text/html; charset=UTF-8");
-				PrintWriter out = response.getWriter();
-				out.println("<script>alert('파일 첨부 문제 발생 잠시 후 다시 시도 해주세요.');</script>");
-				//redirect
-			}
-			orderTitle = mrequest.getParameter("orderTitle");
-			
-			orderPoint = mrequest.getParameter("orderPoint");
-			placename = mrequest.getParameter("placename");
-			lat = mrequest.getParameter("lat");
-			lng = mrequest.getParameter("lng");
-			orderText = mrequest.getParameter("orderText");
-			
-
-
-
-
-			//------------file-----------
-			//pname1,pname2
-			/*File pfile = mrequest.getFile("pname");
-	         String filePname = pfile.getName(); //File Object 이용한 파일명
-	         long attachFileSize = pfile.length(); //File Size
+			/* ---------------------------------------------------------------
+			 * shop_pic : cos.jar MultipartParser를 이용한  멀티 파일업로드 드래그 처리
+			 * <input type="file" name="files[]" multiple>  name 1개로 여러 파일 올릴 경우
+			 * ---------------------------------------------------------------
 			 */
+
+			String saveDirectory = "C:/uploads";
+			FileRenamePolicy policy = new DefaultFileRenamePolicy();
 			int next_sseq = odao.selectNextSseq(conn);
-			Enumeration formName = mrequest.getFileNames();
-			while (formName.hasMoreElements()) {
-				String fnames = (String)formName.nextElement();
-				String origpnames = mrequest.getOriginalFileName(fnames);
-				System.out.println(origpnames);
-
-				if(origpnames != null) {            
-					String sysnames = mrequest.getFilesystemName(fnames);
-					File pfiles = mrequest.getFile(fnames);
-					long attachFileSizes = pfiles.length(); //File Size
-					
-					opvo.setpicPpath(saveDirectory);
-					opvo.setpicOriginname(origpnames);
-					opvo.setpicSysname(sysnames);
-					opvo.setoSeq(next_sseq);
-					if(opvolist.size() == 0) {  
-						opvo.setorderYn("Y");
-					}else {
-						opvo.setorderYn("N");
-					}
-					opvolist.add(opvo);
-				}
-			}
-			mrequest.getContentType("pname");
-			//파일 확장자 처리
-			//	                  String attachFileExt ="jpg";
-			//	                  if(origpnames.lastIndexOf(".") != -1) {
-			//	                     attachFileExt = origpnames.substring(origpnames.lastIndexOf(".")+1);
-			//	                  }
-			//	                  
-			//	                  if(!attachFileExt.toUpperCase().equals("JPG") &&
-			//	                        !attachFileExt.toUpperCase().equals("PNG") &&
-			//	                        !attachFileExt.toUpperCase().equals("GIF") &&
-			//	                        !attachFileExt.toUpperCase().equals("JPEG")) {
-			//	                     response.setContentType("text/html; charset=UTF-8");
-			//	                     PrintWriter out = response.getWriter();
-			//	                     out.println("<script>alert('이미지 파일만 첨부');</script>");
-			//	                     //response.sendRedirect("shop_form.jsp");
-			//	                  }
-
-
-
-
-			/*try {
-	            conn.setAutoCommit(false);
-	         } catch (SQLException e) {
-	            // TODO Auto-generated catch block
-	            e.printStackTrace();
-	         } // 사용자가 임의로 커밋하겠다.*/
-
-
-			//conn.rollback(); 정상입력이 안된경우 되돌리기 위해서 ...
-			//--------------------------------------------
-			// 1. CURRVAL+1 SSEQ 가져오기
-			//--------------------------------------------
+			MultipartParser parser = new MultipartParser(request, 1024 * 1024 * 10,false, false, "UTF-8");
 			
+			Part part=null;
+			HashMap<String, Object> smap = new HashMap<String, Object>();
+			ArrayList<OrderPicVO> opvolist  = new ArrayList<OrderPicVO>();
+			while ((part = parser.readNextPart()) != null) {
+				String inputName = part.getName();
+				if (part.isParam()) {
+					ParamPart paramPart = (ParamPart)part;
+					String value = paramPart.getStringValue();
+					smap.put(inputName, value);
+				} else if (part.isFile()) {
+					OrderPicVO pvo = new OrderPicVO();
 
+					FilePart filePart = (FilePart)part;
+					//내가 정의한 파일 리네임 폴리시 사용....셋팅
+					filePart.setRenamePolicy(policy);
+
+					String fileName = filePart.getFileName();
+					
+					//파일업로드
+					if (fileName != null) {
+						long fileSize = filePart.writeTo(new File(saveDirectory));   //writeTo 하는 동시에 여기서 업로드. 리네임도 같이 진행된다.
+						//               filePart.getFileName();     //리네임
+						//               filePart.getFilePath();      //원본명
+						pvo.setpicPpath(saveDirectory);
+						pvo.setpicOriginname(fileName);
+						pvo.setpicSysname(filePart.getFileName());
+						pvo.setoSeq(next_sseq);
+						if(opvolist.size() == 0) {  
+							pvo.setorderYn("Y");
+						}else {
+							pvo.setorderYn("N");
+						}
+						opvolist.add(pvo);
+
+					} else {
+						System.out.println("error");
+					}
+				}
+			} 
 			if(next_sseq > 0) {
 				//--------------------------------------------
 				// 2. DB저장작업
 				//    SHOP_INFO 테이블 정보 입력 : 1번 입력
 				//--------------------------------------------
-				ovo.setoTitle(orderTitle);
-				ovo.setoPoint(Integer.parseInt(orderPoint));
-				ovo.setoAddress(placename);
-				ovo.setoLat(Double.parseDouble(lat));
-				ovo.setoLng(Double.parseDouble(lng));
-				ovo.setoText(orderText);
+				ovo.setoTitle(smap.get("orderTitle").toString());
+				ovo.setoPoint(Integer.parseInt(smap.get("orderPoint").toString()));
+				ovo.setoAddress(smap.get("placename").toString());
+				ovo.setoLat(Double.parseDouble(smap.get("lat").toString()));
+				ovo.setoLng(Double.parseDouble(smap.get("lng").toString()));
+				ovo.setoText(smap.get("orderText").toString());
 				ovo.setoSeq(next_sseq);
 
 				int infoInsertRes = odao.orderInsert(ovo, conn);
@@ -214,8 +137,8 @@ public class orderInsertServlet extends HttpServlet {
 				//    SHOP_PIC 테이블 정보 입력 : pvolist.size()번 입력
 				//--------------------------------------------
 				if(infoInsertRes > 0) {
-					
-					
+
+
 					int shopPicInsertRes = 0;
 					for(int i=0; i<opvolist.size(); i++) {
 						shopPicInsertRes = odao.orderPicInsert(opvolist.get(i), conn);
