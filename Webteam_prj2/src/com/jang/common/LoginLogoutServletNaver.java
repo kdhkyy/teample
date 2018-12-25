@@ -14,14 +14,14 @@ import com.jang.member.MemberVO;
 /**
  * Servlet implementation class LoginLogoutServlet
  */
-@WebServlet("/LoginLogoutServlet")
-public class LoginLogoutServlet extends HttpServlet {
+@WebServlet("/LoginLogoutServletNaver")
+public class LoginLogoutServletNaver extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public LoginLogoutServlet() {
+    public LoginLogoutServletNaver() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -52,7 +52,7 @@ vo.setmPw(userpw);
 
 MemberDAO dao = new MemberDAO();
 
-MemberVO uvo = dao.select(vo);
+MemberVO uvo = dao.selectNaver(vo);
 System.out.println(uvo.getmGubun());
 
 if(uvo.getmGubun() !=null || uvo.getmGubun().equals("")) {
@@ -70,14 +70,14 @@ if(uvo.getmGubun() !=null || uvo.getmGubun().equals("")) {
 	
     
 	if(uvo.getmGubun().equals("u")) {
-		response.sendRedirect("index.jsp");
+		response.sendRedirect("index3.jsp");
 		//request. getRequestDispatcher("index.jsp");//.forward(request, response);
 		//response.sendRedirect("index.jsp");
 		System.out.println("성공");
 
 	}else if (uvo.getmGubun().equals("a")) {
 		//request.getRequestDispatcher("admin/index.jsp").forward(request, response);
-		response.sendRedirect("index.jsp");
+		response.sendRedirect("index3.jsp");
 		System.out.println("admin 성공");
 	}
 

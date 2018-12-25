@@ -16,7 +16,7 @@ import com.jang.order.orderVO;
 public class MemberDAO {
 
 	/**
-	 * 로그인 정보 가져오기
+	 * 우리회사 로그인 정보 가져오기
 	 * @param uvo
 	 * @return
 	 */
@@ -32,6 +32,60 @@ public class MemberDAO {
 		}
 		return vo2;
 	}
+	/**
+	 * 구글 로그인 정보 가져오기
+	 * @param uvo
+	 * @return
+	 */
+	public MemberVO selectGoogle(MemberVO uvo) {  //login
+		SqlSession conn =null;
+		MemberVO vo2 = null;
+		
+		try {
+			conn = MyBatisFactory.getFactory().openSession();
+			vo2 = conn.selectOne("memberNameSpace.memberLoginGoogle", uvo);
+		} finally {
+			conn.close();
+		}
+		return vo2;
+	}
+	
+	/**
+	 * 카카오 로그인 정보 가져오기
+	 * @param uvo
+	 * @return
+	 */
+	public MemberVO selectKakao(MemberVO uvo) {  //login
+		SqlSession conn =null;
+		MemberVO vo2 = null;
+		
+		try {
+			conn = MyBatisFactory.getFactory().openSession();
+			vo2 = conn.selectOne("memberNameSpace.memberLoginKakao", uvo);
+		} finally {
+			conn.close();
+		}
+		return vo2;
+	}
+	
+	/**
+	 * 네이버 로그인 정보 가져오기
+	 * @param uvo
+	 * @return
+	 */
+	public MemberVO selectNaver(MemberVO uvo) {  //login
+		SqlSession conn =null;
+		MemberVO vo2 = null;
+		
+		try {
+			conn = MyBatisFactory.getFactory().openSession();
+			vo2 = conn.selectOne("memberNameSpace.memberLoginNaver", uvo);
+		} finally {
+			conn.close();
+		}
+		return vo2;
+	}
+	
 	/**
 	 * 회원가입 입력정보 집어넣기
 	 * @param mvo

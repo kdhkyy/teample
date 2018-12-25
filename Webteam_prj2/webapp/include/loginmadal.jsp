@@ -22,7 +22,11 @@
                 var button = document.querySelector('#signInButton');
                 button.addEventListener('click', function() {
                   auth2.signIn();
-					$("#Gname").val(auth2.currentUser.get().getBasicProfile().getName());
+                  $("#mNickname").val(auth2.currentUser.get().getBasicProfile().getName());
+					$("#mEmail").val(auth2.currentUser.get().getBasicProfile().getEmail());
+					$("#mPimg").val(auth2.currentUser.get().getBasicProfile().getImageUrl());
+					
+					
                   console.log(auth2.currentUser.get().getBasicProfile());
                   console.log(auth2.currentUser.get().getBasicProfile().getId());
                   console.log(auth2.currentUser.get().getBasicProfile().getName());
@@ -45,12 +49,8 @@
               <button type="button" data-dismiss="modal" aria-label="Close" class="close"><span aria-hidden="true">X</span></button>
             </div>
             <div class="modal-body">
-              <form name="asd" id="asd"  action="/LoginLogoutServlet" method="post">
-              <input type="hidden" name="Gname" id="Gname">
-               <input type="hidden" name="ImageURL" id="ImageURL">
-                <input type="hidden" name="Gid" id="Gid">
-                 <input type="hidden" name="Email" id="Email">
-                  <input type="hidden" name="id_token" id="id_token">
+              <form action="/LoginLogoutServlet" method="post">
+             
                 <div class="form-group">
                   <input id="userid" name="userid" type="text" placeholder="email" class="form-control">
                 </div>
@@ -61,9 +61,20 @@
                   <button  class="btn btn-template-outlined"><i class="fa fa-sign-in"></i> Log in</button>
               <!-- <div class="g-signin2" data-onsuccess="onSignIn"><a href="#" onclick="googleasd.jsp">Sign out</a></div> -->
                  <!-- <button  class="g-signin2" onclick="location.href='/googleasd.jsp'"></button>  -->
-                 <div class="g-signin2" id="signInButton"></div>
-                </p>
+                
+              
               </form>
+              <div>
+              	<form  name="asd" id="asd" action="/LoginLogoutServletGoogle" method="post">
+              	 <input type="hidden" name="mNickname" id="mNickname">
+               <input type="hidden" name="mPimg" id="mPimg">
+                <input type="hidden" name="Gid" id="Gid">
+                 <input type="hidden" name="mEmail" id="mEmail">
+                  <input type="hidden" name="id_token" id="id_token">
+              	   <input type="hidden" id="mFrom" name ="mFrom" >
+              	 <div class="g-signin2" id="signInButton"></div>
+              	</form>
+              </div>
               <p class="text-center text-muted">Not registered yet?</p>
               <p class="text-center text-muted"><a href="customer-register.html"><strong>Register now</strong></a>! It is easy and done in 1Â minute and gives you access to special discounts and much more!</p>
             </div>
