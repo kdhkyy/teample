@@ -21,7 +21,7 @@ public class memberPaymentServlet extends HttpServlet {
    
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		MemberDAO dao = new MemberDAO();
-		MemberVO vo = dao.memberPayment(3);
+		MemberVO vo = dao.memberPayment(4);
 		System.out.println(vo.getmAccountHolder()+vo.getmSeq()+":"+vo.getmBank());
 		request.setAttribute("MEMBER", vo);
 		request.getRequestDispatcher("/payment-apply.jsp").forward(request, response);

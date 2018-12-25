@@ -27,6 +27,7 @@
       <id property="mSeq" column="m_seq" />
       
       <result property="mAccountNumber" column="m_account_number" />
+      <result property="mAccountHolder" column="m_account_holder" />
       <result property="mAddress" column="m_address" />
       <result property="mAddressDetail" column="m_address_detail" />
       <result property="mBank" column="m_bank" />
@@ -82,6 +83,11 @@
       <result property="sseq" column="sseq" />
    </resultMap>
  -->
+ 
+ 	<!-- 출금요청 member 내용 불러오기 -->
+ 	<select id="memberPayment" parameterType="int" resultMap="memberMap">
+ 	 select * from member where m_seq = #{value}
+ 	</select>
  <!-- 우리회사로그인 -->
  	<select id="memberLogin" resultMap="memberMap" parameterType="com.jang.member.MemberVO">
  	select * from member

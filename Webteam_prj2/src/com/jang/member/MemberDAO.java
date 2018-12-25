@@ -20,6 +20,9 @@ public class MemberDAO {
 	 * @param uvo
 	 * @return
 	 */
+	
+	
+	
 	public MemberVO select(MemberVO uvo) {  //login
 		SqlSession conn =null;
 		MemberVO vo2 = null;

@@ -383,7 +383,7 @@ $(document).ready(function(){
                 </div>
                 <div class="panel-body">
                   <ul class="nav nav-pills flex-column text-sm">
-                    <li class="nav-item"><a href="memberOrderMission.jsp" class="nav-link"><i class="fa fa-list"></i>의뢰신청 / 수주</a></li>
+                     <li class="nav-item"><a href="memberOrderMission.jsp" class="nav-link"><i class="fa fa-list"></i>의뢰신청 / 수주</a></li>
                     <li class="nav-item"><a href="point-list-detail.jsp" class="nav-link"><i class="fa fa-heart"></i>포인트 조회</a></li>
                     <li class="nav-item"><a href="/memberPaymentServlet" class="nav-link"><i class="fa fa-user"></i>포인트 환급</a></li>
                     <li class="nav-item"><a href="recharge.jsp" class="nav-link"><i class="fa fa-user"></i>충전</a></li>
