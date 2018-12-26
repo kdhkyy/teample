@@ -22,7 +22,13 @@ $(document).ready(function(){
         }
         $("#insertForm").submit();
     });
-});
+
+	
+	
+}); 
+
+
+
 </script>
 </head>
   <body>
@@ -71,7 +77,6 @@ $(document).ready(function(){
                <p class="text-center">
                 <button type="submit" onclick="location.href='/freeUpdate?fSeq=${RES_VO.fSeq}'" class="btn btn-sm btn-info">수정하기</button>
                 <button type="submit" onclick="location.href='/freeDelete?fSeq=${RES_VO.fSeq}'" class="btn btn-sm btn-warning">삭제하기</button>
-                <button type="submit" class="btn btn-sm btn-danger">신고하기</button>
                 </p>
                 </div>
                 <div class="heading">
@@ -105,6 +110,7 @@ $(document).ready(function(){
 			            <th>내용</th>			            
 			            <th><label><input type="hidden"></label></th> 
 			            <th>날짜</th>
+			            <th>삭제</th>
 			         </tr>
 			      </thead>
 			      <tbody id="freeComList">
@@ -112,8 +118,9 @@ $(document).ready(function(){
 			            <tr>
 			            <td>${vv.mNickName}</td>
 			            <td>${vv.rText}</td>
-						<td><label><input type="hidden" name="fSeq" value="${vv.rSeq}"></label></td>
+						<td><label><input type="hidden" name="fSeq" value="${vv.fSeq}"></label></td>
 			            <td>${vv.rRegdate}</td>
+			            <td><button type="submit" onclick="location.href='/freeComDelete?fSeq=${vv.fSeq}&rSeq=${vv.rSeq}'" class="btn btn-sm btn-warning">삭제하기</button></td>
 			            </tr>
 			       </c:forEach>
 			      </tbody> 
@@ -124,7 +131,8 @@ $(document).ready(function(){
              </div>
              </section>
             </div>
-
+<!-- 수정하기버튼 -->
+<!-- <button name="comupdate"onclick="comupdate();" class="btn btn-sm btn-info">수정하기</button> -->
           </div>
         </div>
       </div>

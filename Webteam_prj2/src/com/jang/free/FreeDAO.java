@@ -80,12 +80,36 @@ public class FreeDAO {
 		}
 		return res;
 	}
+	public int freeComUpdate(FreeComVO cvo) {
+		SqlSession conn = null;
+		int res= 0;
+		try {
+			conn = MyBatisFactory.getFactory().openSession();
+	         res = conn.update("freeNameSpace.freeComUpdate",cvo);
+	         conn.commit();
+		}finally {
+			conn.close();
+		}
+		return res;
+	}
 	public int freeDelete(int fseq) {
 	      SqlSession conn =null;
 	      int res = 0;
 	      try {
 	         conn = MyBatisFactory.getFactory().openSession();
-	         res = conn.delete("freeNameSpace.freeDelete",fseq);  
+	         res = conn.update("freeNameSpace.freeDelete",fseq);  
+	         conn.commit();
+	      } finally {
+	         conn.close();
+	      }
+	      return res;
+	   }
+	public int freeComDelete(int rseq) {
+	      SqlSession conn =null;
+	      int res = 0;
+	      try {
+	         conn = MyBatisFactory.getFactory().openSession();
+	         res = conn.delete("freeNameSpace.freeComDelete",rseq);  
 	         conn.commit();
 	      } finally {
 	         conn.close();

@@ -27,7 +27,7 @@
        insert into free_board
        (f_seq,f_title,f_regdate,f_text,m_seq,f_yn) 
        values
-       (test_seq.nextval,#{fTitle},sysdate,#{fText},1,'N')
+       (test_seq.nextval,#{fTitle},sysdate,#{fText},1,'n')
     </insert>
      <update id="freeUpdate" parameterType="com.jang.free.FreeVO">
          update free_board
@@ -36,8 +36,8 @@
     </update> 
      <update id="freeDelete" parameterType="Integer">
          update free_board
-         set f_yn='Y'
-         where f_seq=#{value} and f_yn='N'
+         set f_yn='y'
+         where f_seq=#{value} and f_yn='n'
   	</update> 
     <resultMap id="freeComMap" type="com.jang.free.FreeComVO">
     	<result property="rSeq" column="r_seq" />
@@ -65,4 +65,13 @@
        values
        (test_seq.nextval,#{rText},1,#{fSeq},sysdate)
     </insert>
+     <update id="freeComUpdate" parameterType="com.jang.free.FreeComVO">
+         update free_board_comment
+         set r_title=#{rText}
+         where r_seq=#{rSeq}
+    </update> 
+     <delete id="freeComDelete" parameterType="Integer">
+        delete from free_board_comment
+		where r_seq=#{rSeq}
+  	</delete> 
 </mapper>
