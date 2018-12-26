@@ -62,7 +62,7 @@ $(document).ready(function(){
 			  var mpw =$("#mPw").val();
 			  var mpw2 =$("#mPw2").val();
 			//  var mPush = $("[id='mPush']:checked").val();
-			  if(nickname == "") {
+			  if(nickname = "") {
 				  	alert("이름(닉네임)을 입력하세요")
 		    		$("#mNickname").focus();
 		    		return false;
@@ -347,7 +347,7 @@ $(document).ready(function(){
                     <div class="col-md-6">
                       <div class="form-group">
                         <label for="mNickname">이름(닉네임)</label>
-                        <input name = "mNickname"id="mNickname" type="text" class="form-control">
+                        <input name ="mNickname" id="mNickname" type="text" class="form-control">
                       </div>
                     </div>
                    

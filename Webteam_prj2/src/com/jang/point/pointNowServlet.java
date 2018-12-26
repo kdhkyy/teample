@@ -9,6 +9,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.google.gson.Gson;
 
@@ -25,7 +26,9 @@ public class pointNowServlet extends HttpServlet {
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		PointDAO dao = new PointDAO();
-		int res = dao.selectNow(4);
+		HttpSession sess=request.getSession();
+		int mseq=(int) sess.getAttribute("SESS_SEQ");
+		int res = dao.selectNow(mseq);
 		Gson gson= new Gson();
 		response.setCharacterEncoding("UTF-8");
 		PrintWriter out = response.getWriter();

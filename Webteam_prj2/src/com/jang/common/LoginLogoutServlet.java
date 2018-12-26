@@ -64,6 +64,7 @@ if(uvo.getmGubun() !=null || uvo.getmGubun().equals("")) {
 	session.setAttribute("SESS_ID", uvo.getmEmail());
 	session.setAttribute("SESS_NAME", uvo.getmNickname());
 	session.setAttribute("SESS_GRADE_GUBUN", uvo.getmGubun());
+	session.setAttribute("SESS_SEQ", uvo.getmSeq());
 	//session.setAttribute("SESS_FROFILE_IMG",uvo.getUser());
 	//request.setAttribute("REQ_PNT", "1000");
 
