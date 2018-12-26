@@ -1,7 +1,18 @@
 package com.jang.member;
 
 public class MemberVO {
+	private String mNickname;//
+	private String mPhone;//
+	private String mPush;//
+	private String mRegdate;
+	private String mZipcode;//
+	private String gRadeGubun;
+	private String mPw;//
+	private String mAccountHolder;
+	private String mAddressJibun;//
+	private int mSeq;
 	
+
 	public String getmAccountHolder() {
 		return mAccountHolder;
 	}
@@ -146,17 +157,6 @@ public class MemberVO {
 		this.mLng = mLng;
 	}
 */
-	
-	private String mNickname;//
-	private String mPhone;//
-	private String mPush;//
-	private String mRegdate;
-	private String mZipcode;//
-	private String gRadeGubun;
-	private String mPw;//
-	private String mAccountHolder;
-	private String mAddressJibun;//
-	private int mSeq;
 	
 	
 	public String getmAddressJibun() {

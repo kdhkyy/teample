@@ -17,14 +17,14 @@ import com.jang.member.MemberVO;
 @WebServlet("/LoginLogoutServlet")
 public class LoginLogoutServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public LoginLogoutServlet() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
+
+	/**
+	 * @see HttpServlet#HttpServlet()
+	 */
+	public LoginLogoutServlet() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
@@ -38,59 +38,61 @@ public class LoginLogoutServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-request.setCharacterEncoding("UTF-8");
-response.setCharacterEncoding("UTF-8");
-System.out.println("로그인");
-String userid = request.getParameter("userid");
-String userpw = request.getParameter("userpw");
+		try {
+			// TODO Auto-generated method stub
+			request.setCharacterEncoding("UTF-8");
+			response.setCharacterEncoding("UTF-8");
+			System.out.println("로그인");
+			String userid = request.getParameter("userid");
+			String userpw = request.getParameter("userpw");
 
-MemberVO vo = new MemberVO();
+			MemberVO vo = new MemberVO();
 
-vo.setmEmail(userid);
-vo.setmPw(userpw);
+			vo.setmEmail(userid);
+			vo.setmPw(userpw);
 
-MemberDAO dao = new MemberDAO();
+			MemberDAO dao = new MemberDAO();
 
-MemberVO uvo = dao.select(vo);
-System.out.println(uvo.getmGubun());
+			MemberVO uvo = dao.select(vo);
 
-if(uvo.getmGubun() !=null || uvo.getmGubun().equals("")) {
+			if(uvo.getmGubun() !=null || uvo.getmGubun().equals("")) {
 
-	//순서 -- page request session application
-	
-	HttpSession session = request.getSession();
+				//순서 -- page request session application
 
-	session.setAttribute("SESS_ID", uvo.getmEmail());
-	session.setAttribute("SESS_NAME", uvo.getmNickname());
-	session.setAttribute("SESS_GRADE_GUBUN", uvo.getmGubun());
-	session.setAttribute("SESS_SEQ", uvo.getmSeq());
-	//session.setAttribute("SESS_FROFILE_IMG",uvo.getUser());
-	//request.setAttribute("REQ_PNT", "1000");
+				HttpSession session = request.getSession();
 
-	
-    
-	if(uvo.getmGubun().equals("u")) {
-		response.sendRedirect("index.jsp");
-		//request. getRequestDispatcher("index.jsp");//.forward(request, response);
-		//response.sendRedirect("index.jsp");
-		System.out.println("성공");
-
-	}else if (uvo.getmGubun().equals("a")) {
-		//request.getRequestDispatcher("admin/index.jsp").forward(request, response);
-		response.sendRedirect("index.jsp");
-		System.out.println("admin 성공");
-	}
-
-}else {
-
-System.out.println("실패");
-request.getRequestDispatcher("index3.jsp").forward(request, response);
+				session.setAttribute("SESS_ID", uvo.getmEmail());
+				session.setAttribute("SESS_NAME", uvo.getmNickname());
+				session.setAttribute("SESS_GRADE_GUBUN", uvo.getmGubun());
+				session.setAttribute("SESS_SEQ", uvo.getmSeq());
+				session.setAttribute("SESS_HOLLDER", uvo.getmAccountHolder());
+				session.setAttribute("SESS_ACCOUNT", uvo.getmAccountNumber());
+				session.setAttribute("SESS_EMAIL", uvo.getmEmail());
+				session.setAttribute("SESS_ADDRESS", uvo.getmAddress());
+				session.setAttribute("SESS_", uvo.getgRadeGubun());
+				//session.setAttribute("SESS_FROFILE_IMG",uvo.getUser());
+				//request.setAttribute("REQ_PNT", "1000");
 
 
 
+				if(uvo.getmGubun().equals("u")) {
+					response.sendRedirect("index.jsp");
+					//request. getRequestDispatcher("index.jsp");//.forward(request, response);
+					//response.sendRedirect("index.jsp");
+					System.out.println("성공");
 
-}
+				}else if (uvo.getmGubun().equals("a")) {
+					//request.getRequestDispatcher("admin/index.jsp").forward(request, response);
+					response.sendRedirect("index.jsp");
+					System.out.println("admin 성공");
+				}
+
+			}
+		} catch(NullPointerException e) {
+			e.printStackTrace();
+			System.out.println("실패");
+			request.getRequestDispatcher("index3.jsp").forward(request, response);
+		}
 	}
 
 }
