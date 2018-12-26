@@ -11,7 +11,16 @@ public class MemberVO {
 	private String mAccountHolder;
 	private String mAddressJibun;//
 	private int mSeq;
-	
+	private String mPimg; //
+	private String mPimgSys;//
+	private String mAccountNumber;//
+	private String mAddress;
+	private String mAddressDetail;//
+	private String mBank;//
+	private String mDeleteYn;
+	private String mEmail;//
+	private String mFrom;//
+	private String mGubun;
 
 	public String getmAccountHolder() {
 		return mAccountHolder;
@@ -131,16 +140,7 @@ public class MemberVO {
 		this.mPimgSys = mPimgSys;
 	}
 
-	private String mPimg; //
-	private String mPimgSys;//
-	private String mAccountNumber;//
-	private String mAddress;
-	private String mAddressDetail;//
-	private String mBank;//
-	private String mDeleteYn;
-	private String mEmail;//
-	private String mFrom;//
-	private String mGubun;
+	
 /*	
 	private Double mLat;
 	private Double mLng;

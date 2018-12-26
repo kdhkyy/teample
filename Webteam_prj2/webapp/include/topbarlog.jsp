@@ -10,14 +10,10 @@
 				 	$("#now_point").html("POINT : "+"<font color=\'black\'>"+res+"</font>");
 				}
 			})
-		/* $.ajax({ //이름 가져오는 부분
-				url:"/pointOneServlet",
-				type:"GET",
-				success:function(res){
-					console.log(res);
-				 	
-				}
-		}) */
+		var res = $.ajax({url:"/TopbarName", type:"GET"});
+		console.log(res);
+		alert(res.responseText);
+		  
 	});
 </script>
       <div class="top-bar">

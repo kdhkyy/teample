@@ -69,7 +69,9 @@ public class LoginLogoutServlet extends HttpServlet {
 				session.setAttribute("SESS_ACCOUNT", uvo.getmAccountNumber());
 				session.setAttribute("SESS_EMAIL", uvo.getmEmail());
 				session.setAttribute("SESS_ADDRESS", uvo.getmAddress());
-				session.setAttribute("SESS_", uvo.getgRadeGubun());
+				session.setAttribute("SESS_GRADE", uvo.getgRadeGubun());
+				
+				
 				//session.setAttribute("SESS_FROFILE_IMG",uvo.getUser());
 				//request.setAttribute("REQ_PNT", "1000");
 
