@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" %>
 <!DOCTYPE html>
 <html>
+<head>
 	<!-- HEADER -->
   <%@ include file="/include/header.jsp" %>
 
@@ -21,9 +22,11 @@
 <link href="css/font-awesome.css" rel="stylesheet"> 
 <!-- //font-awesome-icons -->
 <link href="http://fonts.googleapis.com/css?family=Prompt:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&amp;subset=latin-ext,thai,vietnamese" rel="stylesheet"></head>
-     
+</head>     
      <!-- TOP -->
-     <%@ include file="/include/topbar.jsp" %>
+      <%@ include file="/include/topbar.jsp" %>
+    <%@ include file="/include/loginmadal.jsp" %>
+    
  <body>
       
       <!-- Navbar End-->

@@ -78,7 +78,7 @@
                   </ul> -->
                 </li>
                 <!-- ========== FULL WIDTH MEGAMENU ==================-->
-                <li class="nav-item dropdown menu-large"><a href="question.jsp" data-toggle="dropdown">문의<b class="caret"></b></a>
+                <li class="nav-item dropdown menu-large"><a href="question.jsp" >문의<b class="caret"></b></a>
                   <!-- <ul class="dropdown-menu megamenu">
                     <li>
                       <div class="row">

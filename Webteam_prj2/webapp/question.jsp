@@ -95,11 +95,9 @@ $(document).ready(function(){
                 </div>
                 <div class="panel-body">
                   <ul class="nav nav-pills flex-column text-sm category-menu">
-                    <li class="nav-item"><a href="shop-category.html" class="nav-link d-flex align-items-center justify-content-between"><span>자주 들어오는 질문 </span></a>
+                    <li class="nav-item"><a href="faq.jsp" class="nav-link d-flex align-items-center justify-content-between"><span>자주 들어오는 질문 </span></a>
                     </li>
-                    <li class="nav-item"><a href="shop-category.html" class="nav-link active d-flex align-items-center justify-content-between"><span>FAQ </span></a>
-                    </li>
-                    <li class="nav-item"><a href="shop-category.html" class="nav-link d-flex align-items-center justify-content-between"><span>신고 </span></a>
+                    <li class="nav-item"><a href="question.jsp" class="nav-link active d-flex align-items-center justify-content-between"><span>문의 </span></a>
                     </li>
                   </ul>
                 </div>
@@ -109,8 +107,7 @@ $(document).ready(function(){
            
           </div>
         </div>
-      </div>
-     
+      
       
      <%@ include file="/include/footer.jsp" %>
     

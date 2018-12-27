@@ -106,10 +106,9 @@ $(document).ready(function(){
                 </div>
                 <div class="panel-body">
                   <ul class="nav nav-pills flex-column text-sm">
-                    <li class="nav-item"><a href="text.html" class="nav-link">자주 들어오는 질문</a></li>
-                    <li class="nav-item"><a href="contact.html" class="nav-link">FAQ</a></li>
-                    <li class="nav-item"><a href="faq.html" class="nav-link">신고</a></li>
-                  </ul>
+                    <li class="nav-item"><a href="faq.jsp" class="nav-link">자주 들어오는 질문</a></li>
+                    <li class="nav-item"><a href="question.jsp" class="nav-link">문의</a></li>
+                    </ul>
                 </div>
               </div>
               
